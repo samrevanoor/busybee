@@ -23,4 +23,4 @@ const jobSchema = new Schema({
     notes: String
 })
 
-module.exports = mongoose.model('Job', movieSchema);
+module.exports = mongoose.model('Job', jobSchema);

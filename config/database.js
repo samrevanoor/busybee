@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/jobs',
+mongoose.connect(process.env.DATABASE_URL,
   { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 
-// shortcut to mongoose.connection objec
 const db = mongoose.connection;
 
-db.on('connected', function () {
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
   console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
 });
