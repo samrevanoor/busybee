@@ -19,7 +19,7 @@ const jobSchema = new Schema({
         type: String,
         required: true
     },
-    stages: stageSchema,
+    stages: [stageSchema],
     notes: String
 })
 
