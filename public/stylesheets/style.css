@@ -24,6 +24,13 @@ a {
   border-radius: 15px;
   padding: 20px;
   position: absolute; 
-  top: 40%;
+  top: 30%;
   left: 40%;
+}
+
+.login-link {
+  background-color:rgba(205, 133, 63, 0.5);
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  color: black
 }
