@@ -1,2 +1,20 @@
 <%- include('../partials/header') %>
-<%- include('../partials/footer') %>
+    <div>
+        <a href="/jobs/new">Add a job</a>
+    </div>
+
+    <div id="jobList">
+        <% if (!jobs) { %>
+            <h3>no jobs yet!</h3>
+            <% } else { %>
+                <% jobs.forEach(function(j) { %>
+                    <li>
+                        <%= j.role %>
+                            at
+                            <%= j.company %>
+                            <a href="/jobs/<%= j._id %>">details</a>
+                                <% });%>
+                </li>
+                <% } %>
+    </div>
+    <%- include('../partials/footer') %>
