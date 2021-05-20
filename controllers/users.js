@@ -9,7 +9,6 @@ function index(req, res, next) {
             if (err) return next(err);
             res.render('users/index', {
                 users,
-                user: req.user,
                 name: req.query.name,
                 sortKey
             });
