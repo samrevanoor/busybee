@@ -4,17 +4,17 @@
     </div>
 
     <div id="jobList">
-        <% if (!jobs) { %>
-            <h3>no jobs yet!</h3>
+        <% if (jobs.length >= 1) { %>
+            <% jobs.forEach(function(j) { %>
+                <li>
+                    <%= j.role %>
+                        at
+                        <%= j.company %>
+                        <a href="/jobs/<%= j._id %>">details</a>
+                            <% });%>
+            </li>
             <% } else { %>
-                <% jobs.forEach(function(j) { %>
-                    <li>
-                        <%= j.role %>
-                            at
-                            <%= j.company %>
-                            <a href="/jobs/<%= j._id %>">details</a>
-                                <% });%>
-                </li>
+                <h3>no jobs yet!</h3>
                 <% } %>
     </div>
     <%- include('../partials/footer') %>

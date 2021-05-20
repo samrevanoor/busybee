@@ -48,9 +48,21 @@ function show(req, res) {
         })
 };
 
+function deleteJob(req, res) {
+    Job.findByIdAndDelete(req.params.id)
+      .then(function() {
+          res.redirect('/jobs')
+        })
+      .catch(function(){
+          console.log("OH NO");
+          res.redirect('/jobs')
+        })
+  }
+
 module.exports = {
     index,
     new: newJob,
     create,
-    show
+    show,
+    delete: deleteJob
 }
