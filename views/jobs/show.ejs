@@ -10,6 +10,18 @@
             <%= job.company %>
         </div>
         <br>
+        <div>
+            <span class="jobs-show">Current stage:</span>
+            <%= job.stages %>
+            <br>
+            <span class="jobs-show">Update stage:</span>
+            <select>
+            <% for (let i = 1; i < job.stages + 1; i++){ %>
+                <option value="<%=i%>"><%= i %></option>
+            <% } %>
+              </select>
+        </div>
+        <br>
         <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
             <button type="submit">delete</button>
         </form>

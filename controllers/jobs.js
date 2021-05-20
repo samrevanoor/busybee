@@ -1,7 +1,6 @@
 const Job = require('../models/job');
 
 function index(req, res, next) {
-    console.log(req.query)
     // let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
     // let sortKey = req.query.sort || 'name';
     Job.find({})
@@ -43,26 +42,43 @@ function show(req, res) {
             console.log(job);
             res.render('jobs/show', { title: 'Job Detail', job });
         })
-        .catch(function (err){
+        .catch(function (err) {
             res.redirect('/jobs')
         })
 };
 
 function deleteJob(req, res) {
     Job.findByIdAndDelete(req.params.id)
-      .then(function() {
-          res.redirect('/jobs')
+        .then(function () {
+            res.redirect('/jobs')
         })
-      .catch(function(){
-          console.log("OH NO");
-          res.redirect('/jobs')
+        .catch(function () {
+            console.log("OH NO");
+            res.redirect('/jobs')
         })
-  }
+}
+
+function addStage(req, res) {
+    Job.findById(req.params.id)
+        .then(function (job) {
+            console.log("addStage: ", req.body);
+            job.stages.push(req.body);
+            return job.save();
+        })
+        .then(function () {
+            res.redirect('/jobs/:id');
+        })
+        .catch(function (err) {
+            console.log("OH NO");
+            res.redirect('/jobs/:id');
+        });
+}
 
 module.exports = {
     index,
     new: newJob,
     create,
     show,
-    delete: deleteJob
+    delete: deleteJob,
+    addStage
 }

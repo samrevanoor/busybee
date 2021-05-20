@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Life+Savers&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Life+Savers:wght@400;800&family=Nanum+Pen+Script&display=swap');
 
 body {
   background-image: url("../images/background1.jpeg");
@@ -8,14 +8,16 @@ body {
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  color: black
+}
+
+#title {
+  font-family: 'Life Savers', cursive;
+  font-weight: 800;
 }
 
 #name {
   font-family: 'Homemade Apple', cursive;
-}
-
-a {
-  color: navy;
 }
 
 .login {
