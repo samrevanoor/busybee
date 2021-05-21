@@ -27,6 +27,7 @@ const jobSchema = new Schema({
     currentStage: {
         type: Number,
     },
+    link: String,
     notes: String,
     // user: [{type: Schema.Types.ObjectId, ref: 'User'}]
 })
