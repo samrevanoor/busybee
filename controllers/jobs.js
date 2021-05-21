@@ -1,13 +1,13 @@
-const Job = require('../models/job');
+const User = require('../models/user');
 
 function index(req, res, next) {
     // let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
     // let sortKey = req.query.sort || 'name';
-    Job.find({})
+    User.findById(req.user.id)
         // .sort(sortKey).exec
-        .then(function (jobs) {
+        .then(function (user) {
             res.render('jobs/index', {
-                jobs,
+                user,
                 // name: req.query.name,
                 // sortKey,
                 title: "my buzz feed"
@@ -25,10 +25,14 @@ function newJob(req, res) {
 };
 
 function create(req, res) {
-    const job = new Job(req.body);
-    job.save()
-        .then(function (job) {
-            console.log(job);
+    User.findById(req.user.id)
+        .then(function (user) {
+            console.log(user.jobs)
+            user.jobs.push(req.body);
+            console.log(user.jobs)
+            return user.save()
+        })
+        .then(function () {
             res.redirect(`/jobs`);
         })
         .catch(function (err) {
@@ -37,10 +41,13 @@ function create(req, res) {
 };
 
 function show(req, res) {
-    Job.findById(req.params.id)
+    User.findById(req.user.id)
+        .then(function (user) {
+            return user.jobs.id(req.params.id)
+        })
         .then(function (job) {
             console.log(job);
-            res.render('jobs/show', { title: 'Job Detail', job });
+            res.render('jobs/show', { title: 'job detail', job });
         })
         .catch(function (err) {
             res.redirect('/jobs')
@@ -48,7 +55,11 @@ function show(req, res) {
 };
 
 function deleteJob(req, res) {
-    Job.findByIdAndDelete(req.params.id)
+    User.findById(req.user.id)
+        .then(function (user) {
+            user.jobs.id(req.params.id).remove();
+            return user.save();
+        })
         .then(function () {
             res.redirect('/jobs')
         })
@@ -58,19 +69,19 @@ function deleteJob(req, res) {
         })
 }
 
-function editJob(req, res) {
-    res.render('jobs/edit', {
-      job: Job.getOne(req.params.id)
-    })
-  }
-  
-  function updateJob(req, res) {
-    const updatedValue = req.body;
-    Job.updateOne(req.body, req.params.id);
-    res.render('jobs/show', {
-      job: Job.getOne(req.params.id),
-    })
-  }
+// function editJob(req, res) {
+//     res.render('jobs/edit', {
+//         job: Job.getOne(req.params.id)
+//     })
+// }
+
+// function updateJob(req, res) {
+//     const updatedValue = req.body;
+//     Job.updateOne(req.body, req.params.id);
+//     res.render('jobs/show', {
+//         job: Job.getOne(req.params.id),
+//     })
+// }
 
 // function updateStage(req, res) {
 //     Job.findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -90,6 +101,6 @@ module.exports = {
     create,
     show,
     delete: deleteJob,
-    editJob,
-    updateJob
+    // editJob,
+    // updateJob
 }
