@@ -58,21 +58,31 @@ function deleteJob(req, res) {
         })
 }
 
-function addStage(req, res) {
-    Job.findById(req.params.id)
-        .then(function (job) {
-            console.log("addStage: ", req.body);
-            job.stages.push(req.body);
-            return job.save();
-        })
-        .then(function () {
-            res.redirect('/jobs/:id');
-        })
-        .catch(function (err) {
-            console.log("OH NO");
-            res.redirect('/jobs/:id');
-        });
-}
+function editJob(req, res) {
+    res.render('jobs/edit', {
+      job: Job.getOne(req.params.id)
+    })
+  }
+  
+  function updateJob(req, res) {
+    const updatedValue = req.body;
+    Job.updateOne(req.body, req.params.id);
+    res.render('jobs/show', {
+      job: Job.getOne(req.params.id),
+    })
+  }
+
+// function updateStage(req, res) {
+//     Job.findByIdAndUpdate(req.params.id, req.body, { new: true })
+//         .then(function () {
+//             console.log("addStage: ", req.body);
+//             res.redirect('/jobs/:id');
+//         })
+//         .catch(function (err) {
+//             console.log("OH NO");
+//             res.redirect('/jobs/:id');
+//         });
+// }
 
 module.exports = {
     index,
@@ -80,5 +90,6 @@ module.exports = {
     create,
     show,
     delete: deleteJob,
-    addStage
+    editJob,
+    updateJob
 }

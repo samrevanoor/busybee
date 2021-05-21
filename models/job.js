@@ -23,7 +23,10 @@ const jobSchema = new Schema({
         type: String,
         required: true
     },
-    stages: Number,
+    totalStages: Number,
+    currentStage: {
+        type: Number,
+    },
     notes: String,
     // user: [{type: Schema.Types.ObjectId, ref: 'User'}]
 })

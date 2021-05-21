@@ -12,14 +12,21 @@
         <br>
         <div>
             <span class="jobs-show">Current stage:</span>
-            <%= job.stages %>
-            <br>
-            <span class="jobs-show">Update stage:</span>
-            <select>
-            <% for (let i = 1; i < job.stages + 1; i++){ %>
-                <option value="<%=i%>"><%= i %></option>
-            <% } %>
-              </select>
+            <% if (job.currentStage) { %>
+                <%= job.currentStage %>
+                    <br>
+                    <span class="jobs-show">Update stage:</span>
+                    <form action="/jobs/?_method=PUT" method="POST">
+                        <select name="currentStage">
+                            <% for (let i=1; i < job.totalStages + 1; i++){ %>
+                                <option value="<%=i%>">
+                                    <%= i %>
+                                </option>
+                                <% } %>
+                        </select>
+                        <input type="submit" value="update">
+                    </form>
+                    <% } else { job.currentStage === 1 } %>
         </div>
         <br>
         <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">

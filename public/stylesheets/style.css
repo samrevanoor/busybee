@@ -42,23 +42,29 @@ nav {
   padding: 10px 10px 10px 15px;
 }
 
-nav span {
+nav span a {
   font-family: Arial, Helvetica, sans-serif;
   float: right;
   padding: 5px 15px 0 0;
+  font-size: 16px;
+}
+
+#subheading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
 nav a {
   text-decoration: none;
   color:black;
-  font-size: large
+  font-size: 30px;
 }
 
 #jobList {
   background-color: white;
   font-size: 20px;
   text-align: center;
-  margin: 100px;
+  margin: 20px 100px 0 100px;
   padding: 40px;
   list-style-image: url('../images/icon(2).png');
 }
