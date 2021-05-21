@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+    <form action="/jobs/<%= job._id %>?_method=PUT" method="POST" autocomplete="off">
+        <label>Role name
+            <input type="string" name="role" value="<%= job.role %>">
+        </label><br>
+        <label>Company
+            <input type="string" name="company" value="<%= job.company %>">
+        </label><br>
+        <label># of stages
+            <select name="totalStages">
+                <% for (let i=1; i < 21 + 1; i++){ %>
+                    <option value="<%=i%>">
+                        <%= i %>
+                    </option>
+                    <% } %>
+            </select>
+        </label><br>
+        <label>Current Stage
+            <select name="currentStage">
+                <% for (let i=1; i < 21 + 1; i++){ %>
+                    <option value="<%=i%>">
+                        <%= i %>
+                    </option>
+                    <% } %>
+            </select>
+        </label><br>
+        <label>Link to job description
+            <input type="string" name="link" value="<%= job.link %>">
+        </label><br>
+        <label>Notes
+            <input type="string" name="notes" value="<%= job.notes %>">
+        </label><br><br>
+        <button type="submit">Save job</button>
+        <a href="/jobs">cancel</a>
+    </form>
+
+
+
+    <%- include('../partials/footer') %>

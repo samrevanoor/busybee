@@ -10,9 +10,9 @@ function isLoggedIn(req, res, next) {
 router.get('/jobs', isLoggedIn, jobsCtrl.index);
 router.get('/jobs/new', isLoggedIn, jobsCtrl.new);
 router.post('/jobs', isLoggedIn, jobsCtrl.create);
+router.get('/jobs/:id/edit', isLoggedIn, jobsCtrl.editJob);
 router.get('/jobs/:id', isLoggedIn, jobsCtrl.show);
 router.delete('/jobs/:id', isLoggedIn, jobsCtrl.delete);
-// router.put('/jobs', isLoggedIn, jobsCtrl.addStage);
-
+router.put('/jobs/:id', isLoggedIn, jobsCtrl.updateJob);
 
 module.exports = router;
