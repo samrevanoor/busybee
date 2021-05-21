@@ -63,25 +63,44 @@ function deleteJob(req, res) {
         .then(function () {
             res.redirect('/jobs')
         })
-        .catch(function () {
+        .catch(function (err) {
             console.log("OH NO");
             res.redirect('/jobs')
         })
 }
 
-// function editJob(req, res) {
-//     res.render('jobs/edit', {
-//         job: Job.getOne(req.params.id)
-//     })
-// }
+function editJob(req, res) {
+    User.findById(req.user.id)
+        .then(function (user) {
+            return user.jobs.id(req.params.id);
+        })
+        .then(function (job) {
+            res.render('jobs/edit', { title: 'edit job', job })
+        })
+        .catch(function (err) {
+            console.log("OH NO");
+            res.redirect(`/jobs/${req.params.id}`)
+        })
+}
 
-// function updateJob(req, res) {
-//     const updatedValue = req.body;
-//     Job.updateOne(req.body, req.params.id);
-//     res.render('jobs/show', {
-//         job: Job.getOne(req.params.id),
-//     })
-// }
+function updateJob(req, res) {
+    const editedValue = req.body;
+    User.findById(req.user.id)
+        .then(function (user) {
+            const job = user.jobs.id(req.params.id);
+            job.set(editedValue);
+            user.save();
+            return job;
+        })
+        .then(function (job) {
+            res.redirect(`/jobs/${req.params.id}`)
+        })
+        .catch(function (err) {
+            console.log("OH NO");
+            res.redirect('/jobs')
+        })
+
+}
 
 // function updateStage(req, res) {
 //     Job.findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -101,6 +120,6 @@ module.exports = {
     create,
     show,
     delete: deleteJob,
-    // editJob,
-    // updateJob
+    editJob,
+    updateJob
 }

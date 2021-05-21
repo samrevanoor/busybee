@@ -39,6 +39,10 @@
             <%= job.notes %>
         </div>
         <br>
+        <form action="/jobs/<%= job._id %>/edit" method="GET">
+            <button type="submit">edit</button>
+        </form>
+        <br>
         <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
             <button type="submit">delete</button>
         </form>
