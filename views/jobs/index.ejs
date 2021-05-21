@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+    <div>
+        <a href="/jobs/new">Add a job</a>
+    </div>
+
+    <div id="jobList">
+        <% if (user.jobs.length >= 1) { %>
+            <% user.jobs.forEach(function(j) { %>
+                <li>
+                    <%= j.role %>
+                        at
+                        <%= j.company %>
+                        <a href="/jobs/<%= j._id %>">details</a>
+                            <% });%>
+            </li>
+            <% } else { %>
+                <h3>no jobs yet!</h3>
+                <% } %>
+    </div>
+    <%- include('../partials/footer') %>
