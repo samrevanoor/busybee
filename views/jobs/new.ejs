@@ -1,32 +1,36 @@
 <%- include('../partials/header') %>
-<div class="input-form">
-    <h2 id="title">
-        <%= title %>
-    </h2>
-    <form action="/jobs" method="POST">
-        <label>Role name
-            <input type="string" name="role">
-        </label><br>
-        <label>Company
-            <input type="string" name="company">
-        </label><br>
-        <label>Current Stage
-            <select name="currentStage">
-                <option value="just getting started">just getting started</option>
-                <option value="midway">midway</option>
-                <option value="almost there">almost there</option>
-                <option value="on hold">on hold</option>
-                <option value="done!">done!</option>
-            </select>
-        </label><br>
-        <label>Link to job description
-            <input type="string" name="link">
-        </label><br>
-        <label>Notes
-            <input type="string" name="notes">
-        </label><br><br>
-        <input type="submit" value="Add job">
-        <a href="/jobs">cancel</a>
-    </form>
-</div>
+    <div id="input-form-container">
+        <h2 id="title">
+            <%= title %>
+        </h2>
+        <div id="input-form">
+            <form action="/jobs" method="POST">
+                <label><strong>role name: </strong>
+                    <input type="string" name="role">
+                </label><br>
+                <label><strong>company: </strong>
+                    <input type="string" name="company">
+                </label><br>
+                <label><strong>current stage: </strong>
+                    <select name="currentStage" class="stage-selector">
+                        <option value="just getting started">just getting started</option>
+                        <option value="midway">midway</option>
+                        <option value="almost there">almost there</option>
+                        <option value="on hold">on hold</option>
+                        <option value="done!">done!</option>
+                    </select>
+                </label><br>
+                <label><strong>link to job description: </strong>
+                    <input type="string" name="link">
+                </label><br>
+                <label><strong>notes: </strong>
+                    <input type="string" name="notes">
+                </label><br><br>
+                <input type="submit" value="save job" class="input-button">
+            </form>
+            <form action="/jobs" method="GET">
+                <input type="submit" value="cancel" class="input-button">
+            </form>
+        </div>
+    </div>
     <%- include('../partials/footer') %>

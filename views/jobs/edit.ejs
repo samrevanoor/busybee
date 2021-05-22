@@ -1,33 +1,39 @@
 <%- include('../partials/header') %>
-    <div id="edit-form">
+    <div id="edit-form-container">
         <h2 id="title">
             <%= title %>
         </h2>
-        <form action="/jobs/<%= job._id %>?_method=PUT" method="POST" autocomplete="off">
-            <label>Role name
-                <input type="string" name="role" value="<%= job.role %>">
-            </label><br>
-            <label>Company
-                <input type="string" name="company" value="<%= job.company %>">
-            </label><br>
-            <label>Current Stage
-                <select name="currentStage">
-                    <option value="just getting started" <%= job.currentStage==="just getting started" ? "selected" : "" %>>just getting started</option>
-                    <option value="midway" <%= job.currentStage==="midway" ? "selected" : "" %>>midway</option>
-                    <option value="almost there" <%= job.currentStage==="almost there" ? "selected" : "" %>>almost there</option>
-                    <option value="on hold" <%= job.currentStage==="on hold" ? "selected" : "" %>>on hold</option>
-                    <option value="done!" <%= job.currentStage==="done!" ? "selected" : "" %>>done!</option>
-                </select>
-            </label><br>
-            <label>Link to job description
-                <input type="string" name="link" value="<%= job.link %>">
-            </label><br>
-            <label>Notes
-                <input type="string" name="notes" value="<%= job.notes %>">
-            </label><br><br>
-            <button type="submit">Save job</button>
-            <a href="/jobs">cancel</a>
-        </form>
+        <div id="edit-form">
+            <form action="/jobs/<%= job._id %>?_method=PUT" method="POST" autocomplete="off">
+                <label><strong>role name: </strong>
+                    <input type="string" name="role" value="<%= job.role %>">
+                </label><br>
+                <label><strong>company: </strong>
+                    <input type="string" name="company" value="<%= job.company %>">
+                </label><br>
+                <label><strong>current stage: </strong>
+                    <select name="currentStage">
+                        <option value="just getting started" <%= job.currentStage==="just getting started" ? "selected"
+                            : "" %>>just getting started</option>
+                        <option value="midway" <%= job.currentStage==="midway" ? "selected" : "" %>>midway</option>
+                        <option value="almost there" <%= job.currentStage==="almost there" ? "selected" : "" %>>almost
+                            there</option>
+                        <option value="on hold" <%= job.currentStage==="on hold" ? "selected" : "" %>>on hold</option>
+                        <option value="done!" <%= job.currentStage==="done!" ? "selected" : "" %>>done!</option>
+                    </select>
+                </label><br>
+                <label><strong>link to job description: </strong>
+                    <input type="string" name="link" value="<%= job.link %>">
+                </label><br>
+                <label><strong>notes: </strong>
+                    <input type="string" name="notes" value="<%= job.notes %>">
+                </label><br><br>
+                <input type="submit" value="save job">
+                <form action="/jobs" method="GET">
+                    <input type="submit" value="cancel" class="input-button">
+                </form>
+            </form>
+        </div>
     </div>
 
     <%- include('../partials/footer') %>

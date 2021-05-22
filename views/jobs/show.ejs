@@ -3,39 +3,37 @@
         <h2 id="title">
             <%= title %>
         </h2>
+        <div id="job-show">
         <div>
-            <span class="jobs-show">Role:</span>
+            <span class="jobs-show"><strong>role:</strong></span>
             <%= job.role %>
         </div>
-        <br>
         <div>
-            <span class="jobs-show">Company:</span>
+            <span class="jobs-show"><strong>company:</strong></span>
             <%= job.company %>
         </div>
-        <br>
         <div>
-            <span class="jobs-show">Current stage:</span>
+            <span class="jobs-show"><strong>current stage:</strong></span>
             <%= job.currentStage %>
                 <form action="/jobs/<%= job._id %>/edit" method="GET">
-                    <input type="submit" value="update">
+                    <input type="submit" value="update" class="input-button">
                 </form>
         </div>
-        <br>
         <div>
-            <span class="jobs-show">Link to job description:</span>
+            <span class="jobs-show"><strong>link to job description:</strong></span>
             <a href="<%= job.link %>" target="_blank">
                 <%=job.link%>
             </a>
         </div>
-        <br>
         <div>
-            <span class="jobs-show">Notes:</span>
+            <span class="jobs-show"><strong>notes:</strong></span>
             <%= job.notes %>
         </div>
         <br>
         <span>
             <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
-                <button type="submit">delete</button>
+                <input type="submit" class="input-button" value="delete">
             </form>
+        </div>
     </section>
     <%- include('../partials/footer') %>

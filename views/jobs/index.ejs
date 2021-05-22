@@ -3,12 +3,15 @@
     <div id="job-list">
         <h2 id="title">
             <%= title %>
+            <span class="add-job">
+                <form action="/jobs/new" method="GET">
+                    <button id="add-job" type="submit">add a job</button>
+                </form>
+            </span>
         </h2>
-        <form action="/jobs/new" method="GET">
-            <button id="add-job" type="submit">add a job</button>
-        </form>
         <br><br>
         <% if (user.jobs.length>= 1) { %>
+            <ul>
             <% user.jobs.forEach(function(j) { %>
                 <li>
                     <%= j.role %>
@@ -20,6 +23,7 @@
                             <a href="/jobs/<%= j._id %>">details</a>
                             <% });%>
                 </li>
+            </ul>
                 <% } else { %>
                     <h3>no jobs yet!</h3>
                     <% } %>
