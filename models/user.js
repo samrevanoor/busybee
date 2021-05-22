@@ -23,9 +23,8 @@ const jobSchema = new Schema({
         type: String,
         required: true
     },
-    totalStages: Number,
     currentStage: {
-        type: Number,
+        type: String,
     },
     link: String,
     notes: String,
