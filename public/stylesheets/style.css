@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Life+Savers:wght@400;800&family=Nanum+Pen+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 body {
   background-image: url("../images/background6.gif");
   background-repeat: repeat; 
-  background-size: cover;
+  background-size: auto;
   padding: 50px;
   font-size: 14px;
-  font-family: 'Pompiere', cursive;
+  font-family: 'Lora', cursive;
   text-align: center;
   color: black
 }
@@ -56,7 +56,7 @@ nav a {
 
 #job-list {
   background-color: rgb(255, 205, 5);
-  font-size: 30px;
+  font-size: 24px;
   margin: 20px 100px 0 100px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
@@ -74,7 +74,7 @@ nav a {
 }
 
 #job-list a {
-  font-size: 12px;
+  font-size: 16px;
   color: black;
 }
 
@@ -84,7 +84,7 @@ nav a {
 
 #add-job {
   font-size: 18px;
-  font-family: 'Pompiere', cursive;
+  font-family: 'Lora', cursive;
   font-weight: 800;
   padding: 10px;
   border-radius: 15px;
@@ -94,6 +94,7 @@ nav a {
 
 #add-job:hover {
   cursor: pointer;
+  background-color: rgb(202, 202, 202);
 }
 
 #input-form-container {
@@ -105,24 +106,40 @@ nav a {
 }
 
 #input-form {
-  text-align: left;
+  text-align: center;
   margin-top: 30px;
   font-size: 30px;
   display: block;
-  font-size: 30px;
+  font-size: 20px;
 }
 
-label, input {
+#input-form form {
   display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
 }
 
-input {
+label, input, textarea {
+  display: inline-block;
+  font-family: 'Lora', cursive;
+}
+
+input, textarea {
   border: 2px solid rgb(197, 158, 1);
   border-radius: 15px;
   padding: 10px;
   margin-left: 10px;
   text-align: center;
+}
+
+input:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+textarea {
+  vertical-align: text-top;
+  text-align: left;
 }
 
 #job-show-container {
@@ -136,18 +153,43 @@ input {
 #job-show {
   text-align: left;
   margin-top: 30px;
-  font-size: 30px;
+  font-size: 20px;
   display: block;
 }
 
+#job-show div {
+  margin-bottom: 8px;
+}
+
+#job-show .update-form {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 .input-button {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  font-size: 18px;
+  font-family: 'Lora', cursive;
+  font-weight: 800;
+  padding: 8px 10px 8px 10px;
+  border-radius: 15px;
+  border: 2px solid rgb(197, 158, 1);
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  color: black;
 }
 
 .input-button:hover {
-  cursor: pointer
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+}
+
+#delete-form {
+  text-align: center;
+}
+
+#delete-button:hover {
+  background-color: rgb(219, 0, 0);
+  color: rgb(255, 205, 5)
 }
 
 #job-show-container input, button {
@@ -167,11 +209,12 @@ input {
 #edit-form {
   text-align: left;
   margin-top: 30px;
-  font-size: 30px;
+  font-size: 20px;
   display: block;
 }
 
 .stage-selector {
   padding: 10px;
+  font-family: 'Lora', cursive;
   border-radius: 15px;
 }

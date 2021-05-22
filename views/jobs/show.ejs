@@ -4,36 +4,36 @@
             <%= title %>
         </h2>
         <div id="job-show">
-        <div>
-            <span class="jobs-show"><strong>role:</strong></span>
-            <%= job.role %>
-        </div>
-        <div>
-            <span class="jobs-show"><strong>company:</strong></span>
-            <%= job.company %>
-        </div>
-        <div>
-            <span class="jobs-show"><strong>current stage:</strong></span>
-            <%= job.currentStage %>
+            <div>
+                <span class="jobs-show"><strong>role:</strong></span>
+                <%= job.role %>
+            </div>
+            <div class="update-form">
+                <span class="jobs-show"><strong>company:</strong></span>
+                <%= job.company %>
+            </div>
+            <div class="update-form">
                 <form action="/jobs/<%= job._id %>/edit" method="GET">
-                    <input type="submit" value="update" class="input-button">
+                    <span class="jobs-show"><strong>current stage:</strong></span>
+                    <%= job.currentStage %>
+                        <button type="submit" class="input-button">update</button>
                 </form>
-        </div>
-        <div>
-            <span class="jobs-show"><strong>link to job description:</strong></span>
-            <a href="<%= job.link %>" target="_blank">
-                <%=job.link%>
-            </a>
-        </div>
-        <div>
-            <span class="jobs-show"><strong>notes:</strong></span>
-            <%= job.notes %>
-        </div>
-        <br>
-        <span>
-            <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
-                <input type="submit" class="input-button" value="delete">
-            </form>
+            </div>
+            <div>
+                <span class="jobs-show"><strong>link to job description:</strong></span>
+                <a href="<%= job.link %>" target="_blank">
+                    <%=job.link%>
+                </a>
+            </div>
+            <div>
+                <span class="jobs-show"><strong>notes:</strong></span>
+                <%= job.notes %>
+            </div>
+            <br>
+            <span>
+                <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
+                    <button type="submit" class="input-button" id="delete-button">delete</button>
+                </form>
         </div>
     </section>
     <%- include('../partials/footer') %>

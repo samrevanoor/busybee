@@ -5,14 +5,14 @@
         </h2>
         <div id="edit-form">
             <form action="/jobs/<%= job._id %>?_method=PUT" method="POST" autocomplete="off">
-                <label><strong>role name: </strong>
-                    <input type="string" name="role" value="<%= job.role %>">
-                </label><br>
-                <label><strong>company: </strong>
-                    <input type="string" name="company" value="<%= job.company %>">
-                </label><br>
-                <label><strong>current stage: </strong>
-                    <select name="currentStage">
+                <label><strong>role name: </strong></label>
+                    <input type="string" name="role" value="<%= job.role %>" required>
+                <br>
+                <label><strong>company: </strong></label>
+                    <input type="string" name="company" value="<%= job.company %>" required>
+                <br>
+                <label><strong>current stage: </strong></label>
+                    <select name="currentStage" class="stage-selector">
                         <option value="just getting started" <%= job.currentStage==="just getting started" ? "selected"
                             : "" %>>just getting started</option>
                         <option value="midway" <%= job.currentStage==="midway" ? "selected" : "" %>>midway</option>
@@ -21,17 +21,17 @@
                         <option value="on hold" <%= job.currentStage==="on hold" ? "selected" : "" %>>on hold</option>
                         <option value="done!" <%= job.currentStage==="done!" ? "selected" : "" %>>done!</option>
                     </select>
-                </label><br>
-                <label><strong>link to job description: </strong>
+                <br>
+                <label><strong>link to job description: </strong></label>
                     <input type="string" name="link" value="<%= job.link %>">
-                </label><br>
-                <label><strong>notes: </strong>
-                    <input type="string" name="notes" value="<%= job.notes %>">
-                </label><br><br>
-                <input type="submit" value="save job">
-                <form action="/jobs" method="GET">
-                    <input type="submit" value="cancel" class="input-button">
-                </form>
+                <br>
+                <label><strong>notes: </strong></label>
+                    <textarea type="string" name="notes" rows="8" cols="40"><%= job.notes %></textarea>
+                <br><br>
+                <button type="submit" class="input-button">save job</button>
+            </form>
+            <form action="/jobs/<%= job.id %>" method="GET">
+                <button type="submit" class="input-button">cancel</button>
             </form>
         </div>
     </div>

@@ -27,7 +27,11 @@ function newJob(req, res) {
 function create(req, res) {
     User.findById(req.user.id)
         .then(function (user) {
-            console.log(user.jobs)
+            console.log(user.jobs);
+            req.body.role.trim();
+            req.body.company.trim();
+            req.body.link.trim();
+            req.body.notes.trim();
             user.jobs.push(req.body);
             console.log(user.jobs)
             return user.save()
@@ -36,7 +40,7 @@ function create(req, res) {
             res.redirect(`/jobs`);
         })
         .catch(function (err) {
-            console.log("OH NO");
+            console.log("OH NO: ", err);
             res.redirect('/jobs');
         })
 };

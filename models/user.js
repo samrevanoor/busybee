@@ -4,17 +4,27 @@ const Schema = mongoose.Schema;
 const jobSchema = new Schema({
     role: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 35,
+        trim: true
     },
     company: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 25,
+        trim: true
     },
     currentStage: {
         type: String,
     },
-    link: String,
-    notes: String,
+    link: {
+        type: String,
+        trim: true
+    },
+    notes: {
+        type: String,
+        trim: true
+    }
 })
 
 const userSchema = new Schema({
