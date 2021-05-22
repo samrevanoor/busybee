@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
-    <div>
-        <a href="/jobs/new">Add a job</a>
-    </div>
 
-    <div id="jobList">
-        <% if (user.jobs.length >= 1) { %>
+<div id="job-list">
+    <div id="add-job">
+        <a href="/jobs/new">add a job</a>
+    </div><br><br>
+    <% if (user.jobs.length >= 1) { %>
             <% user.jobs.forEach(function(j) { %>
                 <li>
                     <%= j.role %>

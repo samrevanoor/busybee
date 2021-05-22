@@ -47,7 +47,7 @@ function show(req, res) {
         })
         .then(function (job) {
             console.log(job);
-            res.render('jobs/show', { title: 'job detail', job });
+            res.render('jobs/show', { title: 'job details', job });
         })
         .catch(function (err) {
             res.redirect('/jobs')
