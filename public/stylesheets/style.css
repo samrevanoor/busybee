@@ -14,17 +14,12 @@ body {
 #title {
   font-family: 'Life Savers', cursive;
   font-weight: 800;
-  display: table; /* keep the background color wrapped tight */
-  margin: 20px auto 0px auto; /* keep the table centered */
+  display: table;
+  margin: 20px auto 0px auto;
   padding: 10px;
   font-size: 20px;
   background-color:rgba(247,247,247,255);
   border-radius: 15px;
-}
-
-#worker-bee {
-  width: 100px;
-  vertical-align: middle;
 }
 
 nav {
