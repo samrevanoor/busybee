@@ -1,20 +1,27 @@
 <%- include('../partials/header') %>
 
-<div id="job-list">
-    <div id="add-job">
-        <a href="/jobs/new">add a job</a>
-    </div><br><br>
-    <% if (user.jobs.length >= 1) { %>
+    <div id="job-list">
+        <h2 id="title">
+            <%= title %>
+        </h2>
+        <form action="/jobs/new" method="GET">
+            <button id="add-job" type="submit">add a job</button>
+        </form>
+        <br><br>
+        <% if (user.jobs.length>= 1) { %>
             <% user.jobs.forEach(function(j) { %>
                 <li>
                     <%= j.role %>
                         at
                         <%= j.company %>
-                        <a href="/jobs/<%= j._id %>">details</a>
+                            <span id="current-stage">
+                                <%=j.currentStage%>
+                            </span>
+                            <a href="/jobs/<%= j._id %>">details</a>
                             <% });%>
-            </li>
-            <% } else { %>
-                <h3>no jobs yet!</h3>
-                <% } %>
+                </li>
+                <% } else { %>
+                    <h3>no jobs yet!</h3>
+                    <% } %>
     </div>
     <%- include('../partials/footer') %>

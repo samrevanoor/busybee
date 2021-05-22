@@ -1,19 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// const stageSchema = new Schema({
-//     stageNumber: {
-//         type: Number,
-//         unique: true,
-//         required: true
-//     },
-//     name: {
-//         type: String,
-//         required: true
-//     },
-//     complete: Boolean
-// })
-
 const jobSchema = new Schema({
     role: {
         type: String,
@@ -28,7 +15,6 @@ const jobSchema = new Schema({
     },
     link: String,
     notes: String,
-    // user: [{type: Schema.Types.ObjectId, ref: 'User'}]
 })
 
 const userSchema = new Schema({

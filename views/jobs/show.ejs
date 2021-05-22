@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
     <section id="job-show-container">
+        <h2 id="title">
+            <%= title %>
+        </h2>
         <div>
             <span class="jobs-show">Role:</span>
             <%= job.role %>
@@ -12,26 +15,17 @@
         <br>
         <div>
             <span class="jobs-show">Current stage:</span>
-            <% if (job.currentStage) { %>
-                <%= job.currentStage %>
-                    <br><br>
-                    <span class="jobs-show">Update stage:</span>
-                    <form action="/jobs/?_method=PUT" method="POST">
-                        <select name="currentStage">
-                            <% for (let i=1; i < job.totalStages + 1; i++){ %>
-                                <option value="<%=i%>">
-                                    <%= i %>
-                                </option>
-                                <% } %>
-                        </select>
-                        <input type="submit" value="update">
-                    </form>
-                    <% } else { job.currentStage === 1 } %>
+            <%= job.currentStage %>
+                <form action="/jobs/<%= job._id %>/edit" method="GET">
+                    <input type="submit" value="update">
+                </form>
         </div>
         <br>
         <div>
             <span class="jobs-show">Link to job description:</span>
-            <a href="<%= job.link %>"><%=job.link%></a>
+            <a href="<%= job.link %>" target="_blank">
+                <%=job.link%>
+            </a>
         </div>
         <br>
         <div>
@@ -40,11 +34,8 @@
         </div>
         <br>
         <span>
-        <form action="/jobs/<%= job._id %>/edit" method="GET">
-            <button type="submit">edit</button>
-        </form><br>
-        <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
-            <button type="submit">delete</button>
-        </form>
+            <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
+                <button type="submit">delete</button>
+            </form>
     </section>
     <%- include('../partials/footer') %>

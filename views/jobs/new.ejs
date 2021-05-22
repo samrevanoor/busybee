@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
 <div class="input-form">
+    <h2 id="title">
+        <%= title %>
+    </h2>
     <form action="/jobs" method="POST">
         <label>Role name
             <input type="string" name="role">
@@ -7,22 +10,13 @@
         <label>Company
             <input type="string" name="company">
         </label><br>
-        <label># of stages
-            <select name="totalStages">
-                <% for (let i=1; i < 21 + 1; i++){ %>
-                    <option value="<%=i%>">
-                        <%= i %>
-                    </option>
-                    <% } %>
-            </select>
-        </label><br>
         <label>Current Stage
             <select name="currentStage">
-                <% for (let i=1; i < 21 + 1; i++){ %>
-                    <option value="<%=i%>">
-                        <%= i %>
-                    </option>
-                    <% } %>
+                <option value="just getting started">just getting started</option>
+                <option value="midway">midway</option>
+                <option value="almost there">almost there</option>
+                <option value="on hold">on hold</option>
+                <option value="done!">done!</option>
             </select>
         </label><br>
         <label>Link to job description
