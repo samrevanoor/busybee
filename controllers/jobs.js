@@ -99,7 +99,6 @@ function updateJob(req, res) {
             console.log("OH NO");
             res.redirect('/jobs')
         })
-
 }
 
 // function updateStage(req, res) {
