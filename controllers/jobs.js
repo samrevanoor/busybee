@@ -20,14 +20,18 @@ function index(req, res, next) {
 
 function newJob(req, res) {
     res.render('jobs/new', {
-        title: "Add a new job",
+        title: "add a new job",
     })
 };
 
 function create(req, res) {
     User.findById(req.user.id)
         .then(function (user) {
-            console.log(user.jobs)
+            console.log(user.jobs);
+            req.body.role.trim();
+            req.body.company.trim();
+            req.body.link.trim();
+            req.body.notes.trim();
             user.jobs.push(req.body);
             console.log(user.jobs)
             return user.save()
@@ -36,7 +40,8 @@ function create(req, res) {
             res.redirect(`/jobs`);
         })
         .catch(function (err) {
-            res.redirect('/jobs/new');
+            console.log("OH NO: ", err);
+            res.redirect('/jobs');
         })
 };
 
@@ -89,7 +94,10 @@ function updateJob(req, res) {
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
             job.set(editedValue);
-            user.save();
+            return user.save();
+        })
+        .then(function (user) {
+            const job = user.jobs.id(req.params.id);
             return job;
         })
         .then(function (job) {

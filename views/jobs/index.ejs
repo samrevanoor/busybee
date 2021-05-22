@@ -1,18 +1,45 @@
 <%- include('../partials/header') %>
 
-<div id="job-list">
-    <div id="add-job">
-        <a href="/jobs/new">add a job</a>
-    </div><br><br>
-    <% if (user.jobs.length >= 1) { %>
-            <% user.jobs.forEach(function(j) { %>
-                <li>
-                    <%= j.role %>
-                        at
-                        <%= j.company %>
-                        <a href="/jobs/<%= j._id %>">details</a>
-                            <% });%>
-            </li>
+    <div id="job-list">
+        <h2 id="title">
+            <%= title %>
+                <span class="add-job">
+                    <form action="/jobs/new" method="GET">
+                        <button id="add-job" type="submit">add a job</button>
+                    </form>
+                </span>
+        </h2>
+        <br><br>
+        <% if (user.jobs.length>= 1) { %>
+            <table>
+                <thead>
+                    <tr id="table-head">
+                        <th>role</th>
+                        <th>company</th>
+                        <th>stage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% user.jobs.forEach(function(j) { %>
+                        <tr>
+                            <td>
+                                <%= j.role %>
+                            </td>
+                            <td>
+                                <%= j.company %>
+                            </td>
+                            <td>
+                                <span id="current-stage">
+                                    <%=j.currentStage%>
+                                </span>
+                            </td>
+                            <td>
+                                <a href="/jobs/<%= j._id %>">details</a>
+                            </td>
+                        </tr>
+                        <% });%>
+                </tbody>
+            </table>
             <% } else { %>
                 <h3>no jobs yet!</h3>
                 <% } %>

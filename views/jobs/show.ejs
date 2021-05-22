@@ -1,50 +1,39 @@
 <%- include('../partials/header') %>
     <section id="job-show-container">
-        <div>
-            <span class="jobs-show">Role:</span>
-            <%= job.role %>
+        <h2 id="title">
+            <%= title %>
+        </h2>
+        <div id="job-show">
+            <div>
+                <span class="jobs-show"><strong>role:</strong></span>
+                <%= job.role %>
+            </div>
+            <div class="update-form">
+                <span class="jobs-show"><strong>company:</strong></span>
+                <%= job.company %>
+            </div>
+            <div class="update-form">
+                <form action="/jobs/<%= job._id %>/edit" method="GET">
+                    <span class="jobs-show"><strong>current stage:</strong></span>
+                    <%= job.currentStage %>
+                        <button type="submit" class="input-button">update</button>
+                </form>
+            </div>
+            <div>
+                <span class="jobs-show"><strong>link to job description:</strong></span>
+                <a href="<%= job.link %>" target="_blank">
+                    <%=job.link%>
+                </a>
+            </div>
+            <div>
+                <span class="jobs-show"><strong>notes:</strong></span>
+                <%= job.notes %>
+            </div>
+            <br>
+            <span>
+                <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
+                    <button type="submit" class="input-button" id="delete-button">delete</button>
+                </form>
         </div>
-        <br>
-        <div>
-            <span class="jobs-show">Company:</span>
-            <%= job.company %>
-        </div>
-        <br>
-        <div>
-            <span class="jobs-show">Current stage:</span>
-            <% if (job.currentStage) { %>
-                <%= job.currentStage %>
-                    <br><br>
-                    <span class="jobs-show">Update stage:</span>
-                    <form action="/jobs/?_method=PUT" method="POST">
-                        <select name="currentStage">
-                            <% for (let i=1; i < job.totalStages + 1; i++){ %>
-                                <option value="<%=i%>">
-                                    <%= i %>
-                                </option>
-                                <% } %>
-                        </select>
-                        <input type="submit" value="update">
-                    </form>
-                    <% } else { job.currentStage === 1 } %>
-        </div>
-        <br>
-        <div>
-            <span class="jobs-show">Link to job description:</span>
-            <a href="<%= job.link %>"><%=job.link%></a>
-        </div>
-        <br>
-        <div>
-            <span class="jobs-show">Notes:</span>
-            <%= job.notes %>
-        </div>
-        <br>
-        <span>
-        <form action="/jobs/<%= job._id %>/edit" method="GET">
-            <button type="submit">edit</button>
-        </form><br>
-        <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
-            <button type="submit">delete</button>
-        </form>
     </section>
     <%- include('../partials/footer') %>

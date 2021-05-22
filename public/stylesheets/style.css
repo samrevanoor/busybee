@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Life+Savers:wght@400;800&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 body {
-  background-image: url("../images/background2.jpeg");
+  background-image: url("../images/background6.gif");
   background-repeat: repeat; 
-  background-size: cover;
+  background-size: auto;
   padding: 50px;
   font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lora', cursive;
   text-align: center;
   color: black
 }
@@ -14,11 +15,12 @@ body {
 #title {
   font-family: 'Life Savers', cursive;
   font-weight: 800;
-  display: table;
-  margin: 20px auto 0px auto;
+  display: inline;
+  margin: 10px auto 0px auto;
   padding: 10px;
   font-size: 20px;
-  background-color:rgba(247,247,247,255);
+  background-color: black;
+  color:rgb(255, 205, 5);
   border-radius: 15px;
 }
 
@@ -49,76 +51,187 @@ nav a {
 
 #add-job {
   float: right;
+
 }
 
 #job-list {
   background-color: rgb(255, 205, 5);
-  font-size: 16px;
-  text-align: left;
+  font-size: 24px;
   margin: 20px 100px 0 100px;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
   border-radius: 15px;
   text-align: center;
   list-style-image: url('../images/bee-icon-shrunk.png');
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: black;
+  color:rgb(255, 205, 5);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+tbody {
+  font-size: 20px;
+}
+
+.add-job {
+  float: right;
 }
 
 #job-list a {
-  font-size: 12px;
+  font-size: 16px;
   color: black;
 }
 
-#add-job a {
-  /* font-family: Arial, Helvetica, sans-serif; */
+#current-stage {
+  font-style: italic;
+}
+
+#add-job {
   font-size: 18px;
+  font-family: 'Lora', cursive;
   font-weight: 800;
   padding: 10px;
   border-radius: 15px;
+  border: 2px solid rgb(197, 158, 1);
+  text-align: center;
 }
 
-.input-form {
-  background-color: rgba(247,247,247,255);
-  text-align: left;
-  margin: 20px 300px 0 300px;
-  padding: 40px;
+#add-job:hover {
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+}
+
+#input-form-container {
+  background-color: rgb(255, 205, 5);
+  text-align: center;
+  margin: 20px 200px 0 200px;
+  padding: 20px 40px 40px 40px;
   border-radius: 15px;
 }
 
-.input-form label {
-  font-size: 18px;
+#input-form {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
+  display: block;
+  font-size: 20px;
 }
 
-label, input {
+#input-form form {
   display: inline-block;
-  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
-input {
+label, input, textarea {
+  display: inline-block;
+  font-family: 'Lora', cursive;
+}
+
+input, textarea {
   border: 2px solid rgb(197, 158, 1);
   border-radius: 15px;
+  padding: 10px;
   margin-left: 10px;
   text-align: center;
 }
 
-#job-show-container {
-  background-color: rgba(247,247,247,255);
+input:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+textarea {
+  vertical-align: text-top;
   text-align: left;
-  margin: 20px 300px 0 300px;
-  padding: 40px;
+}
+
+#job-show-container {
+  background-color: rgb(255, 205, 5);
+  text-align: center;
+  margin: 20px 200px 0 200px;
+  padding: 20px 40px 40px 40px;
   border-radius: 15px;
+}
+
+#job-show {
+  text-align: left;
+  margin-top: 30px;
+  font-size: 20px;
+  display: block;
+}
+
+#job-show div {
+  margin-bottom: 8px;
+}
+
+#job-show .update-form {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.input-button {
+  font-size: 18px;
+  font-family: 'Lora', cursive;
+  font-weight: 800;
+  padding: 8px 10px 8px 10px;
+  border-radius: 15px;
+  border: 2px solid rgb(197, 158, 1);
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  color: black;
+}
+
+.input-button:hover {
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+}
+
+#delete-form {
+  text-align: center;
+}
+
+#delete-button:hover {
+  background-color: rgb(219, 0, 0);
+  color: rgb(255, 205, 5)
 }
 
 #job-show-container input, button {
   border: 2px solid rgb(197, 158, 1);
   border-radius: 15px;
   margin-left: 10px;
+}
+
+#edit-form-container {
+  background-color: rgb(255, 205, 5);
   text-align: center;
+  margin: 20px 200px 0 200px;
+  padding: 20px 40px 40px 40px;
+  border-radius: 15px;
 }
 
 #edit-form {
-  background-color: rgba(247,247,247,255);
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  display: block;
+}
+
+#edit-form form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
-  margin: 20px 300px 0 300px;
-  padding: 40px;
+}
+
+.stage-selector {
+  padding: 10px;
+  font-family: 'Lora', cursive;
   border-radius: 15px;
 }
