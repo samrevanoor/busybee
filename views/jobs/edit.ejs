@@ -13,13 +13,13 @@
                 <br>
                 <label><strong>current stage: </strong></label>
                     <select name="currentStage" class="stage-selector">
-                        <option value="just getting started" <%= job.currentStage==="just getting started" ? "selected"
+                        <option value="just getting started ★☆☆☆☆" <%= job.currentStage==="just getting started ★☆☆☆☆" ? "selected"
                             : "" %>>just getting started</option>
-                        <option value="midway" <%= job.currentStage==="midway" ? "selected" : "" %>>midway</option>
-                        <option value="almost there" <%= job.currentStage==="almost there" ? "selected" : "" %>>almost
+                        <option value="midway ★★★☆☆" <%= job.currentStage==="midway ★★★☆☆" ? "selected" : "" %>>midway</option>
+                        <option value="almost there ★★★★☆" <%= job.currentStage==="almost there ★★★★☆" ? "selected" : "" %>>almost
                             there</option>
-                        <option value="on hold" <%= job.currentStage==="on hold" ? "selected" : "" %>>on hold</option>
-                        <option value="done!" <%= job.currentStage==="done!" ? "selected" : "" %>>done!</option>
+                            <option value="done! ★★★★★" <%= job.currentStage==="done! ★★★★★" ? "selected" : "" %>>done!</option>
+                            <option value="on hold" <%= job.currentStage==="on hold" ? "selected" : "" %>>on hold</option>
                     </select>
                 <br>
                 <label><strong>link to job description: </strong></label>

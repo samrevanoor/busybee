@@ -64,9 +64,19 @@ nav a {
   list-style-image: url('../images/bee-icon-shrunk.png');
 }
 
-#job-list ul {
-  text-align: left;
+table {
+  width: 100%;
+}
 
+th {
+  background-color: black;
+  color:rgb(255, 205, 5);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+tbody {
+  font-size: 20px;
 }
 
 .add-job {
@@ -100,7 +110,7 @@ nav a {
 #input-form-container {
   background-color: rgb(255, 205, 5);
   text-align: center;
-  margin: 20px 300px 0 300px;
+  margin: 20px 200px 0 200px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
 }
@@ -145,7 +155,7 @@ textarea {
 #job-show-container {
   background-color: rgb(255, 205, 5);
   text-align: center;
-  margin: 20px 300px 0 300px;
+  margin: 20px 200px 0 200px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
 }
@@ -201,16 +211,23 @@ textarea {
 #edit-form-container {
   background-color: rgb(255, 205, 5);
   text-align: center;
-  margin: 20px 300px 0 300px;
+  margin: 20px 200px 0 200px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
 }
 
 #edit-form {
-  text-align: left;
+  text-align: center;
   margin-top: 30px;
   font-size: 20px;
   display: block;
+}
+
+#edit-form form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 .stage-selector {
