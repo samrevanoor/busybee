@@ -35,7 +35,7 @@
                 <div class="interview-log">
                     <br>
                     <% job.interviewLog.forEach(function(i) { %>
-                        <h2 id="title">
+                        <h2 id="log-entry">
                             log entry # <%= job.interviewLog.indexOf(i) + 1 %>
                         </h2><br><br>
                         <div>
@@ -63,10 +63,10 @@
                         <form id="interview-log-form" method="POST" action="/jobs/<%= job._id %>/logs">
                             <label>interviewers: </label>
                             <textarea type="string" name="interviewers" rows="4" cols="35" required></textarea>
-                            <br>
+                            <br><br>
                             <label>contact info:</label>
                             <textarea type="string" name="contactInfo" rows="4" cols="35" required></textarea>
-                            <br>
+                            <br><br>
                             <label>notes: </label>
                             <textarea type="string" name="notes" rows="8" cols="35" required></textarea>
                             <br><br>
