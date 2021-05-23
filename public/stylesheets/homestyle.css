@@ -13,6 +13,7 @@ body {
 
 #name {
     font-family: 'Homemade Apple', cursive;
+    font-size: 40px;
 }
   
 .login {
@@ -20,9 +21,9 @@ body {
     background-color: rgba(255, 255, 255, 1);
     border: 5px dashed #f2d518;
     border-radius: 15px;
-    padding: 20px;
+    padding: 40px 100px 40px 100px;
     position: absolute; 
-    top: 30%;
+    top: 25%;
     left: 35%;
 }
   
@@ -31,4 +32,5 @@ body {
     border-radius: 15px;
     padding: 5px 20px 5px 20px;
     color: black;
+    font-size: 14px
   }

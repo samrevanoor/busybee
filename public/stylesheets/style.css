@@ -24,6 +24,10 @@ body {
   border-radius: 15px;
 }
 
+#title span {
+  float: right;
+}
+
 nav {
   background-color: rgb(255, 205, 5);
   font-family: 'Homemade Apple', cursive;
@@ -49,14 +53,9 @@ nav a {
   font-size: 30px;
 }
 
-#add-job {
-  float: right;
-
-}
-
 #job-list {
   background-color: rgb(255, 205, 5);
-  font-size: 24px;
+  font-size: 18px;
   margin: 20px 100px 0 100px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
@@ -76,7 +75,7 @@ th {
 }
 
 tbody {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .add-job {
@@ -88,23 +87,10 @@ tbody {
   color: black;
 }
 
-#current-stage {
-  font-style: italic;
-}
-
-#add-job {
-  font-size: 18px;
-  font-family: 'Lora', cursive;
-  font-weight: 800;
-  padding: 10px;
-  border-radius: 15px;
-  border: 2px solid rgb(197, 158, 1);
-  text-align: center;
-}
-
-#add-job:hover {
+button:hover {
   cursor: pointer;
   background-color: rgb(202, 202, 202);
+  background-image: linear-gradient(white, rgb(202, 202, 202));
 }
 
 #input-form-container {
@@ -152,6 +138,10 @@ textarea {
   text-align: left;
 }
 
+textarea:hover {
+  background-color: rgb(230, 230, 230);
+}
+
 #job-show-container {
   background-color: rgb(255, 205, 5);
   text-align: center;
@@ -173,11 +163,11 @@ textarea {
 
 #job-show .update-form {
   margin-bottom: 0px;
-  margin-top: 0px;
+  margin-top: 4px;
 }
 
 .input-button {
-  font-size: 18px;
+  font-size: 14px;
   font-family: 'Lora', cursive;
   font-weight: 800;
   padding: 8px 10px 8px 10px;
@@ -188,24 +178,32 @@ textarea {
   color: black;
 }
 
-.input-button:hover {
-  cursor: pointer;
-  background-color: rgb(202, 202, 202);
-}
-
 #delete-form {
   text-align: center;
 }
 
 #delete-button:hover {
   background-color: rgb(219, 0, 0);
-  color: rgb(255, 205, 5)
+  color: rgb(255, 205, 5);
+  background-image: linear-gradient(red, rgb(182, 0, 0));
 }
 
 #job-show-container input, button {
   border: 2px solid rgb(197, 158, 1);
   border-radius: 15px;
   margin-left: 10px;
+}
+
+#log-entry {
+  font-family: 'Life Savers', cursive;
+  font-weight: 800;
+  display: inline;
+  margin: 10px auto 0px auto;
+  padding: 10px;
+  font-size: 16px;
+  background-color: black;
+  color:rgb(255, 205, 5);
+  border-radius: 15px;
 }
 
 #edit-form-container {
@@ -234,4 +232,8 @@ textarea {
   padding: 10px;
   font-family: 'Lora', cursive;
   border-radius: 15px;
+}
+
+.interview-log, #interview-log-form {
+  font-size: 16px;
 }
