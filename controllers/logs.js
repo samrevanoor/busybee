@@ -25,6 +25,21 @@ function create(req, res) {
         })
 }
 
+// function deleteEntry(req, res) {
+//     User.findById(req.user.id)
+//         .then(function (user) {
+//             user.interviewLog.id(req.params.id).remove();
+//             return user.save();
+//         })
+//         .then(function () {
+//             res.redirect('/jobs')
+//         })
+//         .catch(function (err) {
+//             console.log("OH NO");
+//             res.redirect('/jobs')
+//         })
+// }
+
 module.exports = {
     create
 };
