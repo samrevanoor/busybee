@@ -3,13 +3,13 @@
     <div id="job-list">
         <h2 id="title">
             <%= title %>
-                <span class="add-job">
+                <span>
                     <form action="/jobs/new" method="GET">
-                        <button id="add-job" type="submit">add a job</button>
+                        <button class="input-button" type="submit">add a job</button>
                     </form>
                 </span>
         </h2>
-        <br><br>
+        <br><br><br>
         <% if (user.jobs.length>= 1) { %>
             <table>
                 <thead>
@@ -29,9 +29,7 @@
                                 <%= j.company %>
                             </td>
                             <td>
-                                <span id="current-stage">
-                                    <%=j.currentStage%>
-                                </span>
+                                <%=j.currentStage%>
                             </td>
                             <td>
                                 <a href="/jobs/<%= j._id %>">details</a>
@@ -42,6 +40,12 @@
             </table>
             <% } else { %>
                 <h3>no jobs yet!</h3>
+                <a>
+                    <strong>how to get started:</strong><br>
+                    - click on "add a job"<br>
+                    - enter the role name, company name, and a link to the job<br>
+                    - you can then add details to your interview log to help you keep track
+                </a>
                 <% } %>
     </div>
     <%- include('../partials/footer') %>
