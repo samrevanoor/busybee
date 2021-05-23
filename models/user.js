@@ -36,10 +36,6 @@ const jobSchema = new Schema({
         type: String,
         trim: true
     },
-    generalNotes: {
-        type: String,
-        trim: true
-    },
     interviewLog: [logSchema]
 })
 

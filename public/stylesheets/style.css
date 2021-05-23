@@ -235,3 +235,7 @@ textarea {
   font-family: 'Lora', cursive;
   border-radius: 15px;
 }
+
+.interview-log, #interview-log-form {
+  font-size: 16px;
+}

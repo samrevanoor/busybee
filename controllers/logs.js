@@ -5,6 +5,9 @@ function create(req, res) {
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
             console.log(req.body);
+            req.body.interviewers.trim();
+            req.body.contactInfo.trim();
+            req.body.notes.trim();
             job.interviewLog.push(req.body);
             return user.save();
         })

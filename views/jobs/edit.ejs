@@ -13,7 +13,9 @@
                 <br>
                 <label><strong>current stage: </strong></label>
                     <select name="currentStage" class="stage-selector">
-                        <option value="just getting started ★☆☆☆☆" <%= job.currentStage==="just getting started ★☆☆☆☆" ? "selected"
+                        <option value="applied ★☆☆☆☆" <%= job.currentStage==="applied ★☆☆☆☆" ? "selected"
+                            : "" %>>applied</option>
+                        <option value="just getting started ★★☆☆☆" <%= job.currentStage==="just getting started ★★☆☆☆" ? "selected"
                             : "" %>>just getting started</option>
                         <option value="midway ★★★☆☆" <%= job.currentStage==="midway ★★★☆☆" ? "selected" : "" %>>midway</option>
                         <option value="almost there ★★★★☆" <%= job.currentStage==="almost there ★★★★☆" ? "selected" : "" %>>almost
@@ -24,9 +26,6 @@
                 <br>
                 <label><strong>link to job description: </strong></label>
                     <input type="string" name="link" value="<%= job.link %>">
-                <br>
-                <label><strong>general notes: </strong></label>
-                    <textarea type="string" name="notes" rows="8" cols="40"><%= job.generalNotes %></textarea>
                 <br>
                 <br>
                 <button type="submit" class="input-button">save job</button>

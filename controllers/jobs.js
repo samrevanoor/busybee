@@ -31,7 +31,6 @@ function create(req, res) {
             req.body.role.trim();
             req.body.company.trim();
             req.body.link.trim();
-            req.body.generalNotes.trim();
             user.jobs.push(req.body);
             console.log(user.jobs)
             return user.save()
