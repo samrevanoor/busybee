@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const logSchema = new Schema({
-    date: {
-        type: Date,
-        // default: newDate()
-    },
+    date: Date,
     interviewers: [String],
     contactInfo: [String],
     notes: {
@@ -43,7 +40,8 @@ const userSchema = new Schema({
     name: String,
     email: String,
     googleId: String,
-    jobs: [jobSchema]
+    jobs: [jobSchema],
+    interviewLog: [logSchema]
 }, {
     timestamps: true
 });

@@ -24,6 +24,10 @@ body {
   border-radius: 15px;
 }
 
+#title span {
+  float: right;
+}
+
 nav {
   background-color: rgb(255, 205, 5);
   font-family: 'Homemade Apple', cursive;
@@ -47,11 +51,6 @@ nav a {
   text-decoration: none;
   color:black;
   font-size: 30px;
-}
-
-#add-job {
-  float: right;
-
 }
 
 #job-list {
@@ -93,13 +92,14 @@ tbody {
 }
 
 #add-job {
-  font-size: 18px;
+  font-size: 14px;
   font-family: 'Lora', cursive;
   font-weight: 800;
   padding: 10px;
   border-radius: 15px;
   border: 2px solid rgb(197, 158, 1);
   text-align: center;
+  float: right;
 }
 
 #add-job:hover {
@@ -173,11 +173,11 @@ textarea {
 
 #job-show .update-form {
   margin-bottom: 0px;
-  margin-top: 0px;
+  margin-top: 4px;
 }
 
 .input-button {
-  font-size: 18px;
+  font-size: 14px;
   font-family: 'Lora', cursive;
   font-weight: 800;
   padding: 8px 10px 8px 10px;

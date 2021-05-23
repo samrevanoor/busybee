@@ -2,6 +2,11 @@
     <section id="job-show-container">
         <h2 id="title">
             <%= title %>
+            <span>
+                <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
+                    <button type="submit" class="input-button" id="delete-button">delete job</button>
+                </form>
+            </span>
         </h2>
         <div id="job-show">
             <div>
@@ -25,9 +30,10 @@
                     <%=job.link%>
                 </a>
             </div>
-            <label><strong>interview log: </strong></label><br><br>
+            <label><strong>interview log: </strong></label>
             <% if (job.interviewLog.length>= 1) { %>
                 <div class="interview-log">
+                    <br>
                     <% job.interviewLog.forEach(function(i) { %>
                         <h2 id="title">
                             log entry # <%= job.interviewLog.indexOf(i) + 1 %>
@@ -43,7 +49,11 @@
                         </div>
                         <div>
                             notes: <%= i.notes %>
-                        </div><br>
+                        </div>
+                        <!-- <form action="/logs/<%= i._id %>?_method=DELETE" method="POST" id="delete-form">
+                            <button type="submit" class="input-button" id="delete-button">delete entry</button>
+                        </form> -->
+                        <br>
                         <% }); %>
                 </div>
                 <% } else { %>
@@ -62,10 +72,6 @@
                             <br><br>
                             <button type="submit" class="input-button">add log entry</button>
                         </form>
-                        <span>
-                            <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
-                                <button type="submit" class="input-button" id="delete-button">delete</button>
-                            </form>
         </div>
     </section>
     <%- include('../partials/footer') %>
