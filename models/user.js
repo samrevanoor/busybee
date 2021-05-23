@@ -1,6 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const logSchema = new Schema({
+    date: {
+        type: Date,
+        // default: newDate()
+    },
+    interviewers: [String],
+    contactInfo: [String],
+    notes: {
+        type: String,
+        trim: true
+    }
+}, {
+    timestamps: true
+});
+
 const jobSchema = new Schema({
     role: {
         type: String,
@@ -21,10 +36,11 @@ const jobSchema = new Schema({
         type: String,
         trim: true
     },
-    notes: {
+    generalNotes: {
         type: String,
         trim: true
-    }
+    },
+    interviewLog: [logSchema]
 })
 
 const userSchema = new Schema({

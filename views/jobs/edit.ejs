@@ -25,9 +25,10 @@
                 <label><strong>link to job description: </strong></label>
                     <input type="string" name="link" value="<%= job.link %>">
                 <br>
-                <label><strong>notes: </strong></label>
-                    <textarea type="string" name="notes" rows="8" cols="40"><%= job.notes %></textarea>
-                <br><br>
+                <label><strong>general notes: </strong></label>
+                    <textarea type="string" name="notes" rows="8" cols="40"><%= job.generalNotes %></textarea>
+                <br>
+                <br>
                 <button type="submit" class="input-button">save job</button>
             </form>
             <form action="/jobs/<%= job.id %>" method="GET">
