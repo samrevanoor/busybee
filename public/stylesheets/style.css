@@ -88,6 +88,13 @@ tbody {
   color: black;
 }
 
+#sort-button {
+  background-color: black;
+  color: rgb(255,205,5);
+  margin: 0 auto;
+  border-color: rgb(255,205,5);
+}
+
 button:hover {
   cursor: pointer;
   background-color: rgb(202, 202, 202);

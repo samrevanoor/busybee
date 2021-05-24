@@ -1,27 +1,16 @@
 const User = require('../models/user');
 
 function index(req, res, next) {
-    // let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
-    // let sortKey = req.query.sort || 'name';
     User.findById(req.user.id)
         .then(function (user) {
-            // return user.jobs.sort((a, b) => {
-            //     const aDate = new Date(a.createdAt);
-            //     const bDate = new Date(b.createdAt);
-              
-            //     if (aDate < bDate) return 1;
-            //     if (aDate > bDate) return -1;
-              
-            //     return 0;
-            //   });
             return user.jobs.sort((a, b) => {
-                const aStage = a.currentStage;
-                const bStage = b.currentStage;
+                const aDate = new Date(a.createdAt);
+                const bDate = new Date(b.createdAt);
 
-                if (aStage < bStage) return 1;
-                if (aStage > bStage) return -1;
+                if (aDate < bDate) return 1;
+                if (aDate > bDate) return -1;
 
-                return 0
+                return 0;
             });
         })
         // .sort(sortKey).exec
@@ -128,17 +117,31 @@ function updateJob(req, res) {
         })
 }
 
-// function updateStage(req, res) {
-//     Job.findByIdAndUpdate(req.params.id, req.body, { new: true })
-//         .then(function () {
-//             console.log("addStage: ", req.body);
-//             res.redirect('/jobs/:id');
-//         })
-//         .catch(function (err) {
-//             console.log("OH NO");
-//             res.redirect('/jobs/:id');
-//         });
-// }
+function sortByStage(req, res, next) {
+    User.findById(req.user.id)
+        .then(function (user) {
+            return user.jobs.sort((a, b) => {
+                const aStage = a.currentStage;
+                const bStage = b.currentStage;
+
+                if (aStage < bStage) return 1;
+                if (aStage > bStage) return -1;
+
+                return 0
+            });
+        })
+        .then(function (jobs) {
+            res.render('jobs/index', {
+                jobs,
+                name: req.user.firstName,
+                title: "your buzz feed"
+            })
+        })
+        .catch(function (err) {
+            console.log("OH NO", err);
+            res.redirect('/jobs')
+        });
+};
 
 module.exports = {
     index,
@@ -147,5 +150,6 @@ module.exports = {
     show,
     delete: deleteJob,
     editJob,
-    updateJob
+    updateJob,
+    sortByStage
 }

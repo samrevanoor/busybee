@@ -2,12 +2,12 @@
 
     <div id="job-list">
         <h2 id="title">
-            welcome to <%= title %>, <%= name %>
-                <span>
-                    <form action="/jobs/new" method="GET">
-                        <button class="input-button" type="submit">add a job</button>
-                    </form>
-                </span>
+            welcome to <%= title %>, <%= name %>!
+                    <span>
+                        <form action="/jobs/new" method="GET">
+                            <button class="input-button" type="submit">add a job</button>
+                        </form>
+                    </span>
         </h2>
         <br><br>
         <% if (jobs.length>= 1) { %>
@@ -17,7 +17,13 @@
                     <tr id="table-head">
                         <th>role</th>
                         <th>company</th>
-                        <th>stage</th>
+                        <th>
+                            stage
+                            <form action="/jobs/sort" method="GET">
+                                <button type="submit" id="sort-button">↓</button>
+                            </form>
+                        </th>
+                        </form>
                     </tr>
                 </thead>
                 <tbody>
