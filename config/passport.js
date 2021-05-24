@@ -11,10 +11,12 @@ passport.use(new GoogleStrategy({
         User.findOne({ 'googleId': profile.id })
             .then(function (user) {
                 if (user) {
+                    console.log("profile:", profile)
                     return cb(null, user);
                 } else {
                     var newUser = new User({
                         name: profile.displayName,
+                        firstName: profile.name.givenName,
                         email: profile.emails[0].value,
                         googleId: profile.id
                     });

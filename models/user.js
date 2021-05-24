@@ -34,10 +34,13 @@ const jobSchema = new Schema({
         trim: true
     },
     interviewLog: [logSchema]
+}, {
+    timestamps: true
 })
 
 const userSchema = new Schema({
     name: String,
+    firstName: String,
     email: String,
     googleId: String,
     jobs: [jobSchema],

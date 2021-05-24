@@ -4,13 +4,33 @@ function index(req, res, next) {
     // let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
     // let sortKey = req.query.sort || 'name';
     User.findById(req.user.id)
-        // .sort(sortKey).exec
         .then(function (user) {
+            // return user.jobs.sort((a, b) => {
+            //     const aDate = new Date(a.createdAt);
+            //     const bDate = new Date(b.createdAt);
+              
+            //     if (aDate < bDate) return 1;
+            //     if (aDate > bDate) return -1;
+              
+            //     return 0;
+            //   });
+            return user.jobs.sort((a, b) => {
+                const aStage = a.currentStage;
+                const bStage = b.currentStage;
+
+                if (aStage < bStage) return 1;
+                if (aStage > bStage) return -1;
+
+                return 0
+            });
+        })
+        // .sort(sortKey).exec
+        .then(function (jobs) {
             res.render('jobs/index', {
-                user,
-                // name: req.query.name,
+                jobs,
+                name: req.user.firstName,
                 // sortKey,
-                title: "my buzz feed"
+                title: "your buzz feed"
             })
         })
         .catch(function (err) {

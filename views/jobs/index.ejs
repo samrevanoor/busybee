@@ -2,15 +2,16 @@
 
     <div id="job-list">
         <h2 id="title">
-            <%= title %>
+            welcome to <%= title %>, <%= name %>
                 <span>
                     <form action="/jobs/new" method="GET">
                         <button class="input-button" type="submit">add a job</button>
                     </form>
                 </span>
         </h2>
-        <br><br><br>
-        <% if (user.jobs.length>= 1) { %>
+        <br><br>
+        <% if (jobs.length>= 1) { %>
+            <br>
             <table>
                 <thead>
                     <tr id="table-head">
@@ -20,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% user.jobs.forEach(function(j) { %>
+                    <% jobs.forEach(function(j) { %>
                         <tr>
                             <td>
                                 <%= j.role %>
