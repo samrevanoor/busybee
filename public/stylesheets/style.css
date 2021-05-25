@@ -22,6 +22,7 @@ body {
   background-color: black;
   color:rgb(255, 205, 5);
   border-radius: 15px;
+  text-transform: lowercase;
 }
 
 #title span {
@@ -84,6 +85,38 @@ tbody {
 
 #job-list a {
   font-size: 16px;
+  color: black;
+}
+
+#sort-button {
+  background-color: black;
+  color: rgb(255,205,5);
+  margin: 0 auto;
+  border-color: rgb(255,205,5);
+}
+
+#sort-options {
+  background-color: black;
+  border-color: black;
+  color: rgb(255, 205, 5);
+  font-size: 14px;
+  font-family: 'Lora', cursive;
+}
+
+#sort-tablehead {
+  width: 50px;
+  font-size: 14px;
+}
+
+#sort-submit {
+  background-color: black;
+  color: rgb(255, 205, 5);
+  font-family: 'Lora';
+  border: 1px solid rgb(255, 205, 5);
+  font-size: 12px;
+}
+
+#sort-submit:hover {
   color: black;
 }
 
