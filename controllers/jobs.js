@@ -227,6 +227,17 @@ function searchRole(req, res) {
         })
 }
 
+function hired(req, res) {
+    User.findById(req.user.id)
+        .then(function (user) {
+            res.render('jobs/hired')
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.redirect('/jobs')
+        })
+}
+
 module.exports = {
     index,
     new: newJob,
@@ -236,5 +247,6 @@ module.exports = {
     editJob,
     updateJob,
     sort,
-    search: searchRole
+    search: searchRole,
+    hired
 }
