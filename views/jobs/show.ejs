@@ -20,7 +20,7 @@
             <div class="update-form">
                 <form action="/jobs/<%= job._id %>/edit" method="GET">
                     <span class="jobs-show"><strong>current stage:</strong></span>
-                    <%= job.currentStage %>
+                    <%= job.currentStage.slice(3) %>
                         <button type="submit" class="input-button">update</button>
                 </form>
             </div>

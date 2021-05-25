@@ -17,10 +17,26 @@
                     <tr id="table-head">
                         <th>role</th>
                         <th>company</th>
-                        <th>
-                            stage
+                        <th>stage</th>
+                        <th id="sort-tablehead">sort by<br>
                             <form action="/jobs/sort" method="GET">
-                                <button type="submit" id="sort-button">↓</button>
+                                <select id="sort-options" name="sortKey">
+                                    <option value="last updated"<%= sortKey==="last updated" ? "selected"
+                                    : "" %>>last updated</option>
+                                    <option value="role A-Z" <%= sortKey==="role A-Z" ? "selected"
+                                    : "" %>>role A-Z</option>
+                                    <option value="role Z-A" <%= sortKey==="role Z-A" ? "selected"
+                                    : "" %>>role Z-A</option>
+                                    <option value="company A-Z" <%= sortKey==="company A-Z" ? "selected"
+                                    : "" %>>company A-Z</option>
+                                    <option value="company Z-A" <%= sortKey==="company Z-A" ? "selected"
+                                    : "" %>>company Z-A</option>
+                                    <option value="latest stage" <%= sortKey==="latest stage" ? "selected"
+                                    : "" %>>latest stage</option>
+                                    <option value="earliest stage" <%= sortKey==="earliest stage" ? "selected"
+                                    : "" %>>earliest stage</option>
+                                </select>
+                                <button type="submit" id="sort-submit">go</button>
                             </form>
                         </th>
                         </form>
@@ -36,7 +52,7 @@
                                 <%= j.company %>
                             </td>
                             <td>
-                                <%=j.currentStage%>
+                                <%=j.currentStage.slice(3)%>
                             </td>
                             <td>
                                 <a href="/jobs/<%= j._id %>">details</a>

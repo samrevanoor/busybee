@@ -8,7 +8,7 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get('/jobs', isLoggedIn, jobsCtrl.index);
-router.get('/jobs/sort', isLoggedIn, jobsCtrl.sortByStage);
+router.get('/jobs/sort', isLoggedIn, jobsCtrl.sort);
 router.get('/jobs/new', isLoggedIn, jobsCtrl.new);
 router.post('/jobs', isLoggedIn, jobsCtrl.create);
 router.get('/jobs/:id/edit', isLoggedIn, jobsCtrl.editJob);

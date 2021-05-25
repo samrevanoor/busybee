@@ -95,6 +95,31 @@ tbody {
   border-color: rgb(255,205,5);
 }
 
+#sort-options {
+  background-color: black;
+  border-color: black;
+  color: rgb(255, 205, 5);
+  font-size: 14px;
+  font-family: 'Lora', cursive;
+}
+
+#sort-tablehead {
+  width: 50px;
+  font-size: 14px;
+}
+
+#sort-submit {
+  background-color: black;
+  color: rgb(255, 205, 5);
+  font-family: 'Lora';
+  border: 1px solid rgb(255, 205, 5);
+  font-size: 12px;
+}
+
+#sort-submit:hover {
+  color: black;
+}
+
 button:hover {
   cursor: pointer;
   background-color: rgb(202, 202, 202);

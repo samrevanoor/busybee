@@ -4,8 +4,8 @@ function index(req, res, next) {
     User.findById(req.user.id)
         .then(function (user) {
             return user.jobs.sort((a, b) => {
-                const aDate = new Date(a.createdAt);
-                const bDate = new Date(b.createdAt);
+                const aDate = new Date(a.updatedAt);
+                const bDate = new Date(b.updatedAt);
 
                 if (aDate < bDate) return 1;
                 if (aDate > bDate) return -1;
@@ -13,12 +13,11 @@ function index(req, res, next) {
                 return 0;
             });
         })
-        // .sort(sortKey).exec
         .then(function (jobs) {
             res.render('jobs/index', {
                 jobs,
                 name: req.user.firstName,
-                // sortKey,
+                sortKey: "last updated",
                 title: "your buzz feed"
             })
         })
@@ -117,22 +116,87 @@ function updateJob(req, res) {
         })
 }
 
-function sortByStage(req, res, next) {
+function sort(req, res, next) {
     User.findById(req.user.id)
         .then(function (user) {
-            return user.jobs.sort((a, b) => {
-                const aStage = a.currentStage;
-                const bStage = b.currentStage;
+            const sortKey = req.query.sortKey;
+            if (sortKey === "role A-Z") {
+                return user.jobs.sort((a, b) => {
+                    const aRole = a.role;
+                    const bRole = b.role;
 
-                if (aStage < bStage) return 1;
-                if (aStage > bStage) return -1;
+                    if (aRole < bRole) return -1;
+                    if (aRole > bRole) return 1;
 
-                return 0
-            });
+                    return 0
+                });
+            } else if (sortKey === "role Z-A") {
+                return user.jobs.sort((a, b) => {
+                    const aRole = a.role;
+                    const bRole = b.role;
+
+                    if (aRole < bRole) return 1;
+                    if (aRole > bRole) return -1;
+
+                    return 0
+                });
+            } else if (sortKey === "company A-Z") {
+                return user.jobs.sort((a, b) => {
+                    const aCompany = a.company;
+                    const bCompany = b.company;
+
+                    if (aCompany < bCompany) return -1;
+                    if (aCompany > bCompany) return 1;
+
+                    return 0
+                });
+            } else if (sortKey === "company Z-A") {
+                return user.jobs.sort((a, b) => {
+                    const aCompany = a.company;
+                    const bCompany = b.company;
+
+                    if (aCompany < bCompany) return 1;
+                    if (aCompany > bCompany) return -1;
+
+                    return 0
+                });
+            } else if (sortKey === "latest stage") {
+                return user.jobs.sort((a, b) => {
+                    const aStage = a.currentStage;
+                    const bStage = b.currentStage;
+
+                    if (aStage < bStage) return 1;
+                    if (aStage > bStage) return -1;
+
+                    return 0
+                });
+            } else if (sortKey === "earliest stage") {
+                return user.jobs.sort((a, b) => {
+                    const aStage = a.currentStage;
+                    const bStage = b.currentStage;
+
+                    if (aStage < bStage) return -1;
+                    if (aStage > bStage) return 1;
+
+                    return 0
+                });
+            } else {
+                sortKey === "last updated";
+                return user.jobs.sort((a, b) => {
+                    const aUpdatedAt = a.updatedAt;
+                    const bUpdatedAt = b.updatedAt;
+
+                    if (aUpdatedAt < bUpdatedAt) return 1;
+                    if (aUpdatedAt > bUpdatedAt) return -1;
+
+                    return 0
+                });
+            }
         })
         .then(function (jobs) {
             res.render('jobs/index', {
                 jobs,
+                sortKey: req.query.sortKey,
                 name: req.user.firstName,
                 title: "your buzz feed"
             })
@@ -151,5 +215,5 @@ module.exports = {
     delete: deleteJob,
     editJob,
     updateJob,
-    sortByStage
+    sort
 }
