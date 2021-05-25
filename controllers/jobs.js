@@ -207,6 +207,22 @@ function sort(req, res, next) {
         });
 };
 
+function searchRole(req, res) {
+    User.findById(req.user.id)
+        .then(function (user) {
+            console.log(req.query);
+            const jobs = user.jobs;
+            console.log(jobs);
+            console.log(req.query.id);
+            console.log(jobs.id(req.query.id));
+            res.redirect('/jobs')
+        })
+        .catch(function (err) {
+            console.log("OH NO", err);
+            res.redirect('/jobs')
+        })
+}
+
 module.exports = {
     index,
     new: newJob,
@@ -215,5 +231,6 @@ module.exports = {
     delete: deleteJob,
     editJob,
     updateJob,
-    sort
+    sort,
+    search: searchRole
 }
