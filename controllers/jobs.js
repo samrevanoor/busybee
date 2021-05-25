@@ -39,6 +39,8 @@ function create(req, res) {
             req.body.role.trim();
             req.body.company.trim();
             req.body.link.trim();
+            req.body.roleNormalized = req.body.role.toLowerCase();
+            req.body.companyNormalized = req.body.company.toLowerCase();
             user.jobs.push(req.body);
             console.log(user.jobs)
             return user.save()
@@ -101,6 +103,8 @@ function updateJob(req, res) {
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
             job.set(editedValue);
+            req.body.roleNormalized = req.body.role.toLowerCase();
+            req.body.companyNormalized = req.body.company.toLowerCase();
             return user.save();
         })
         .then(function (user) {
@@ -122,8 +126,8 @@ function sort(req, res, next) {
             const sortKey = req.query.sortKey;
             if (sortKey === "role A-Z") {
                 return user.jobs.sort((a, b) => {
-                    const aRole = a.role;
-                    const bRole = b.role;
+                    const aRole = a.roleNormalized;
+                    const bRole = b.roleNormalized;
 
                     if (aRole < bRole) return -1;
                     if (aRole > bRole) return 1;
@@ -132,8 +136,8 @@ function sort(req, res, next) {
                 });
             } else if (sortKey === "role Z-A") {
                 return user.jobs.sort((a, b) => {
-                    const aRole = a.role;
-                    const bRole = b.role;
+                    const aRole = a.roleNormalized;
+                    const bRole = b.roleNormalized;
 
                     if (aRole < bRole) return 1;
                     if (aRole > bRole) return -1;
@@ -142,8 +146,8 @@ function sort(req, res, next) {
                 });
             } else if (sortKey === "company A-Z") {
                 return user.jobs.sort((a, b) => {
-                    const aCompany = a.company;
-                    const bCompany = b.company;
+                    const aCompany = a.companyNormalized;
+                    const bCompany = b.companyNormalized;
 
                     if (aCompany < bCompany) return -1;
                     if (aCompany > bCompany) return 1;
@@ -152,8 +156,8 @@ function sort(req, res, next) {
                 });
             } else if (sortKey === "company Z-A") {
                 return user.jobs.sort((a, b) => {
-                    const aCompany = a.company;
-                    const bCompany = b.company;
+                    const aCompany = a.companyNormalized;
+                    const bCompany = b.companyNormalized;
 
                     if (aCompany < bCompany) return 1;
                     if (aCompany > bCompany) return -1;
@@ -223,6 +227,17 @@ function searchRole(req, res) {
         })
 }
 
+function hired(req, res) {
+    User.findById(req.user.id)
+        .then(function (user) {
+            res.render('jobs/hired')
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.redirect('/jobs')
+        })
+}
+
 module.exports = {
     index,
     new: newJob,
@@ -232,5 +247,6 @@ module.exports = {
     editJob,
     updateJob,
     sort,
-    search: searchRole
+    search: searchRole,
+    hired
 }
