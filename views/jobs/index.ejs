@@ -3,11 +3,18 @@
     <div id="job-list">
         <h2 id="title">
             welcome to <%= title %>, <%= name %>!
-                    <span>
-                        <form action="/jobs/new" method="GET">
-                            <button class="input-button" type="submit">add a job</button>
-                        </form>
-                    </span>
+            <span>
+                <form action="/jobs/new" method="GET">
+                    <button class="input-button" type="submit">add a job</button>
+                </form>
+            </span>
+            <% if (jobs.length > 0) { %>
+            <span>
+                <form action="/jobs/hired" method="GET">
+                    <button class="input-button" type="submit">hired?</button>
+                </form>
+            </span>
+            <% } %>
         </h2>
         <br><br>
         <% if (jobs.length > 0) { %>
@@ -16,7 +23,7 @@
                 <form action="/jobs/search" method="GET" id="search-form">
                     <input type="search" name="id" placeholder="search for a role" autocomplete="off">
                 </form>
-            </span>
+            </span><br>
             <table>
                 <thead>
                     <tr id="table-head">

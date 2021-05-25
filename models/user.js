@@ -20,11 +20,17 @@ const jobSchema = new Schema({
         maxlength: 35,
         trim: true
     },
+    roleNormalized: {
+        type: String
+    },
     company: {
         type: String,
         required: true,
         maxlength: 25,
         trim: true
+    },
+    companyNormalized: {
+        type: String
     },
     currentStage: {
         type: String,
