@@ -18,7 +18,7 @@
         </div><br><br>
         <% if (jobs.length > 0) { %>
             <br>
-            <table>
+            <table border=1 frame=hsides rules=rows>
                 <thead>
                     <tr id="table-head">
                         <th>role</th>
@@ -52,7 +52,6 @@
                     <% jobs.forEach(function(j) { %>
                         <tr>
                             <td>
-                                
                                 <%= j.role %>
                             </td>
                             <td>
