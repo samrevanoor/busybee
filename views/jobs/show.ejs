@@ -2,11 +2,11 @@
     <section id="job-show-container">
         <h2 id="title">
             <%= title %>
-            <span>
-                <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
-                    <button type="submit" class="input-button" id="delete-button">delete job</button>
-                </form>
-            </span>
+                <span>
+                    <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
+                        <button type="submit" class="input-button" id="delete-button">delete job</button>
+                    </form>
+                </span>
         </h2>
         <div id="job-show">
             <div>
@@ -43,7 +43,15 @@
                             date: <%= i.createdAt.toLocaleDateString() %>
                         </div>
                         <div>
-                            interviewers: <%= i.interviewers %>
+                            interviewers: <% i.interviewers.forEach(function(n){ %>
+                                <a href="https://www.linkedin.com/search/results/all/?keywords=<%=n%>" target="_blank">
+                                    <% if (i.interviewers.indexOf(n) !== i.interviewers.length - 1){ %>
+                                        <%= n %>,
+                                    <% } else { %>
+                                        <%= n %>
+                                    <% } %>
+                                </a>
+                                <% }) %>
                         </div>
                         <div>
                             contact info: <%= i.contactInfo %>
@@ -57,13 +65,14 @@
                 <% } else { %>
                     <h5>no log entries yet!</h5>
                     <% } %>
-                    <span class="jobs-show"><strong>add a log entry below:</strong></span><br><br>
+                        <span class="jobs-show"><strong>add a log entry below:</strong></span><br><br>
                         <form id="interview-log-form" method="POST" action="/jobs/<%= job._id %>/logs">
                             <label>* interviewers: </label>
-                            <textarea type="string" name="interviewers" rows="4" cols="35" placeholder="separate with commas" required></textarea>
+                            <textarea type="string" name="interviewers" rows="4" cols="35"
+                                placeholder="separate with commas" required></textarea>
                             <br><br>
-                            <label>* contact info:</label>
-                            <textarea type="string" name="contactInfo" rows="4" cols="35" required></textarea>
+                            <label>contact info:</label>
+                            <textarea type="string" name="contactInfo" rows="4" cols="35"></textarea>
                             <br><br>
                             <label>notes: </label>
                             <textarea type="string" name="notes" rows="8" cols="35"></textarea>
