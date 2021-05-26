@@ -213,6 +213,10 @@ textarea:hover {
   display: block;
 }
 
+hr {
+  border: 1px solid black;
+}
+
 #job-show div {
   margin-bottom: 8px;
 }
@@ -292,6 +296,12 @@ textarea:hover {
 
 .interview-log, #interview-log-form {
   font-size: 16px;
+}
+
+.confetti {
+  position: fixed;
+  display: block;
+  width: 100%;
 }
 
 #hired-page-container {
