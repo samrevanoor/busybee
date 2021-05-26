@@ -3,7 +3,7 @@
 
 body {
   background-image: url("../images/background6.gif");
-  background-repeat: repeat; 
+  background-repeat:no-repeat; 
   background-size: auto;
   padding: 50px;
   font-size: 14px;
@@ -201,7 +201,7 @@ textarea:hover {
 #job-show-container {
   background-color: rgb(255, 205, 5);
   text-align: center;
-  margin: 20px 200px 0 200px;
+  margin: 20px 100px 0 100px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
 }

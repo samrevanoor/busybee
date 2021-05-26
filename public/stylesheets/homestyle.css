@@ -2,7 +2,7 @@
 
 body {
   background-image: url("../images/background6.gif");
-  background-repeat: repeat; 
+  background-repeat: no-repeat; 
   background-size: cover;
   padding: 50px;
   font-size: 14px;
@@ -22,9 +22,8 @@ body {
     border: 5px dashed #f2d518;
     border-radius: 15px;
     padding: 40px 100px 40px 100px;
-    position: absolute; 
-    top: 35%;
-    left: 35%;
+    margin: 200px auto;
+    width: fit-content;
 }
   
   .login-link {
