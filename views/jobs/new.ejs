@@ -5,21 +5,21 @@
         </h2>
         <div id="input-form">
             <form action="/jobs" method="POST">
-                <label><strong>role name: </strong></label>
+                <label><strong>* role name: </strong></label>
                 <input type="string" name="role" maxlength=35 required>
                 <br>
-                <label><strong>company: </strong></label>
+                <label><strong>* company: </strong></label>
                 <input type="string" name="company" maxlength=25 required>
                 <br>
-                <label><strong>current stage: </strong></label>
+                <label><strong>* current stage: </strong></label>
                 <select name="currentStage" class="stage-selector">
-                    <option value="1. applied ★☆☆☆☆">applied</option>
-                    <option value="2. just getting started ★★☆☆☆">just getting started</option>
-                    <option value="3. midway ★★★☆☆">midway</option>
-                    <option value="4. almost there ★★★★☆">almost there</option>
-                    <option value="5. done! ★★★★★">done!</option>
-                    <option value="6. on hold">on hold</option>
-                    <option value="7. rejected">rejected</option>
+                    <option value="3. applied 🍯○○○○">applied</option>
+                    <option value="4. just getting started 🍯🍯○○○">just getting started</option>
+                    <option value="5. midway 🍯🍯🍯○○">midway</option>
+                    <option value="6. almost there 🍯🍯🍯🍯○">almost there</option>
+                    <option value="7. done! 🍯🍯🍯🍯🍯">done!</option>
+                    <option value="2. on hold">on hold</option>
+                    <option value="1. rejected">rejected</option>
                 </select>
                 <br>
                 <label><strong>link to job description: </strong></label>
@@ -30,6 +30,10 @@
             <form action="/jobs" method="GET">
                 <button type="submit" class="input-button">cancel</button>
             </form>
+            <br><br>
+            <span id="required">
+                * = <span>required</span>
+            </span>
         </div>
     </div>
     <%- include('../partials/footer') %>

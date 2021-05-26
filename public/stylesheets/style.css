@@ -13,16 +13,17 @@ body {
 }
 
 #title {
-  font-family: 'Life Savers', cursive;
+  font-family: 'Lora', cursive;
   font-weight: 800;
   display: inline;
   margin: 10px auto 0px auto;
-  padding: 10px;
-  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  font-size: 18px;
   background-color: black;
   color:rgb(255, 205, 5);
   border-radius: 15px;
   text-transform: lowercase;
+  text-align: left;
 }
 
 #title span {
@@ -57,7 +58,7 @@ nav a {
 #job-list {
   background-color: rgb(255, 205, 5);
   font-size: 18px;
-  margin: 20px 100px 0 100px;
+  margin: 20px 0 0 0;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
   text-align: center;
@@ -85,6 +86,10 @@ th {
 
 tbody {
   font-size: 16px;
+}
+
+tr:nth-child(2n+1) {
+  background-color: rgb(255, 174, 0);
 }
 
 .add-job {
@@ -155,6 +160,16 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+}
+
+#required {
+  font-size: 12px;
+  float: left;
+  margin-left: 40px
+}
+
+#required span {
+  font-style: italic;
 }
 
 label, input, textarea {
@@ -236,7 +251,7 @@ textarea:hover {
 }
 
 #log-entry {
-  font-family: 'Life Savers', cursive;
+  font-family: 'Lora', cursive;
   font-weight: 800;
   display: inline;
   margin: 10px auto 0px auto;
@@ -285,6 +300,7 @@ textarea:hover {
   margin: 20px 200px 0 200px;
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #hired-page-container span {
@@ -295,14 +311,14 @@ textarea:hover {
   background-color: rgb(255, 205, 5);
   text-align: center;
   margin-top: 20px;
-  padding: 10px 10px 10px 15px;
+  padding: 20px;
   border-radius: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
 
 #footer a {
-  font-size: 12px;
+  font-size: 11px;
   text-decoration: none;
   color: black
 }
