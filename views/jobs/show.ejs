@@ -50,9 +50,6 @@
                         <div>
                             notes: <%= i.notes %>
                         </div>
-                        <!-- <form action="/logs/<%= i._id %>?_method=DELETE" method="POST" id="delete-form">
-                            <button type="submit" class="input-button" id="delete-button">delete entry</button>
-                        </form> -->
                         <br>
                         <% }); %>
                 </div>
@@ -62,7 +59,7 @@
                     <span class="jobs-show"><strong>add a log entry below:</strong></span><br><br>
                         <form id="interview-log-form" method="POST" action="/jobs/<%= job._id %>/logs">
                             <label>interviewers: </label>
-                            <textarea type="string" name="interviewers" rows="4" cols="35" required></textarea>
+                            <textarea type="string" name="interviewers" rows="4" cols="35" placeholder="separate with commas" required></textarea>
                             <br><br>
                             <label>contact info:</label>
                             <textarea type="string" name="contactInfo" rows="4" cols="35" required></textarea>

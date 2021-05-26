@@ -64,6 +64,14 @@ nav a {
   list-style-image: url('../images/bee-icon-shrunk.png');
 }
 
+#job-list-buttons {
+  float: right;
+}
+
+#job-list-buttons span {
+  display: inline-flex;
+}
+
 table {
   width: 100%;
 }
@@ -269,4 +277,32 @@ textarea:hover {
 
 .interview-log, #interview-log-form {
   font-size: 16px;
+}
+
+#hired-page-container {
+  background-color: rgb(255, 205, 5);
+  text-align: center;
+  margin: 20px 200px 0 200px;
+  padding: 20px 40px 40px 40px;
+  border-radius: 15px;
+}
+
+#hired-page-container span {
+  font-family: 'Homemade Apple', cursive;
+}
+
+#footer {
+  background-color: rgb(255, 205, 5);
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 10px 10px 15px;
+  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#footer a {
+  font-size: 12px;
+  text-decoration: none;
+  color: black
 }
