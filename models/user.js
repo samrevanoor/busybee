@@ -50,7 +50,6 @@ const userSchema = new Schema({
     email: String,
     googleId: String,
     jobs: [jobSchema],
-    interviewLog: [logSchema]
 }, {
     timestamps: true
 });

@@ -120,10 +120,6 @@ tbody {
   color: black;
 }
 
-#search-form {
-  text-align: right;
-}
-
 button:hover {
   cursor: pointer;
   background-color: rgb(202, 202, 202);

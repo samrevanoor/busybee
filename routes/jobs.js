@@ -9,7 +9,6 @@ function isLoggedIn(req, res, next) {
 
 router.get('/jobs', isLoggedIn, jobsCtrl.index);
 router.get('/jobs/sort', isLoggedIn, jobsCtrl.sort);
-router.get('/jobs/search', isLoggedIn, jobsCtrl.search);
 router.get('/jobs/new', isLoggedIn, jobsCtrl.new);
 router.get('/jobs/hired', isLoggedIn, jobsCtrl.hired);
 router.post('/jobs', isLoggedIn, jobsCtrl.create);

@@ -1,3 +1,4 @@
+const { Model } = require('mongoose');
 const User = require('../models/user');
 
 function index(req, res, next) {
@@ -39,8 +40,8 @@ function create(req, res) {
             req.body.role.trim();
             req.body.company.trim();
             req.body.link.trim();
-            req.body.roleNormalized = req.body.role.toLowerCase();
-            req.body.companyNormalized = req.body.company.toLowerCase();
+            req.body.roleNormalized = req.body.role.toLowerCase().trim();
+            req.body.companyNormalized = req.body.company.toLowerCase().trim();
             user.jobs.push(req.body);
             console.log(user.jobs)
             return user.save()
@@ -103,19 +104,19 @@ function updateJob(req, res) {
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
             job.set(editedValue);
-            req.body.roleNormalized = req.body.role.toLowerCase();
-            req.body.companyNormalized = req.body.company.toLowerCase();
+            req.body.roleNormalized = req.body.role.toLowerCase().trim();
+            req.body.companyNormalized = req.body.company.toLowerCase().trim();
             return user.save();
         })
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
             return job;
         })
-        .then(function (job) {
+        .then(function () {
             res.redirect(`/jobs/${req.params.id}`)
         })
         .catch(function (err) {
-            console.log("OH NO");
+            console.log("OH NO", err);
             res.redirect('/jobs')
         })
 }
@@ -211,22 +212,6 @@ function sort(req, res, next) {
         });
 };
 
-function searchRole(req, res) {
-    User.findById(req.user.id)
-        .then(function (user) {
-            console.log(req.query);
-            const jobs = user.jobs;
-            console.log(jobs);
-            console.log(req.query.id);
-            console.log(jobs.id(req.query.id));
-            res.redirect('/jobs')
-        })
-        .catch(function (err) {
-            console.log("OH NO", err);
-            res.redirect('/jobs')
-        })
-}
-
 function hired(req, res) {
     User.findById(req.user.id)
         .then(function (user) {
@@ -247,6 +232,5 @@ module.exports = {
     editJob,
     updateJob,
     sort,
-    search: searchRole,
     hired
 }

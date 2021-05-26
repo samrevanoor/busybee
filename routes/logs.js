@@ -8,6 +8,5 @@ function isLoggedIn(req, res, next) {
 }
 
 router.post('/jobs/:id/logs', isLoggedIn, logCtrl.create);
-// router.delete('/logs/:id', logCtrl.deleteEntry);
 
 module.exports = router;

@@ -19,11 +19,6 @@
         <br><br>
         <% if (jobs.length > 0) { %>
             <br>
-            <span>
-                <form action="/jobs/search" method="GET" id="search-form">
-                    <input type="search" name="id" placeholder="search for a role" autocomplete="off">
-                </form>
-            </span><br>
             <table>
                 <thead>
                     <tr id="table-head">
@@ -58,6 +53,7 @@
                     <% jobs.forEach(function(j) { %>
                         <tr>
                             <td>
+                                
                                 <%= j.role %>
                             </td>
                             <td>
