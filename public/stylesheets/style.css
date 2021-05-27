@@ -55,7 +55,7 @@ nav a {
 
 #subheading {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 
@@ -66,7 +66,6 @@ nav a {
   padding: 20px 40px 40px 40px;
   border-radius: 15px;
   text-align: center;
-  list-style-image: url('../images/bee-icon-shrunk.png');
 }
 
 #job-list-buttons {
@@ -212,9 +211,12 @@ textarea:hover {
 
 #job-show {
   text-align: left;
-  margin-top: 30px;
   font-size: 20px;
   display: block;
+}
+
+#job-show-buttons {
+  display: inline-flex;
 }
 
 hr {
@@ -222,12 +224,13 @@ hr {
 }
 
 #job-show div {
+  margin-top: 8px;
   margin-bottom: 8px;
 }
 
-#job-show .update-form {
+#job-show {
   margin-bottom: 0px;
-  margin-top: 4px;
+  margin-top: 40px;
 }
 
 .input-button {
@@ -346,3 +349,49 @@ hr {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 2px solid rgb(255,205,5);
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+  font-style: italic;
+  font-size: 12px;
+  color: rgb(255,205,5);
+  font-weight: 800;
+  background-color: black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: rgb(255, 205, 5);
+  text-align: center;
+  border-radius: 6px;
+  padding: 15px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

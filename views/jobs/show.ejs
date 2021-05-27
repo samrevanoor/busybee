@@ -2,7 +2,10 @@
     <section id="job-show-container">
         <h2 id="title">
             <%= title %>
-                <span>
+                <span id="job-show-buttons">
+                    <form action="/jobs/<%= job._id %>/edit" method="GET">
+                        <button type="submit" class="input-button">update</button>
+                    </form>
                     <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST" id="delete-form">
                         <button type="submit" class="input-button" id="delete-button">delete job</button>
                     </form>
@@ -18,11 +21,8 @@
                 <%= job.company %>
             </div>
             <div class="update-form">
-                <form action="/jobs/<%= job._id %>/edit" method="GET">
-                    <span class="jobs-show"><strong>current stage:</strong></span>
-                    <%= job.currentStage.slice(3) %>
-                        <button type="submit" class="input-button">update</button>
-                </form>
+                <span class="jobs-show"><strong>current stage:</strong></span>
+                <%= job.currentStage.slice(3) %>
             </div>
             <div>
                 <span class="jobs-show"><strong>link to job description:</strong></span>
@@ -45,13 +45,16 @@
                         <div>
                             interviewers: <% i.interviewers.forEach(function(n){ %>
                                 <a href="https://www.linkedin.com/search/results/all/?keywords=<%=n%>" target="_blank">
-                                    <% if (i.interviewers.indexOf(n) !== i.interviewers.length - 1){ %>
+                                    <% if (i.interviewers.indexOf(n) !==i.interviewers.length - 1){ %>
                                         <%= n %>,
-                                    <% } else { %>
-                                        <%= n %>
-                                    <% } %>
-                                </a>
-                                <% }) %>
+                                            <% } else { %>
+                                                <%= n %>
+                                                    <% } %>
+                                                </a>
+                                                <% }) %>
+                                                <div class="tooltip">i
+                                                    <span class="tooltiptext">click on each interviewer's name to search them up on LinkedIn!</span>
+                                                </div>
                         </div>
                         <div>
                             contact info: <%= i.contactInfo %>
