@@ -223,6 +223,10 @@ function hired(req, res) {
         })
 }
 
+function resources(req, res){
+    res.render('resources')
+}
+
 module.exports = {
     index,
     new: newJob,
@@ -232,5 +236,6 @@ module.exports = {
     editJob,
     updateJob,
     sort,
-    hired
+    hired,
+    resources
 }
