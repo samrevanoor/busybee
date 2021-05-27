@@ -4,8 +4,9 @@ function create(req, res) {
     User.findById(req.user.id)
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
-            console.log(req.body);
-            req.body.interviewers.trim();
+            console.log("LOG ENTRY:", req.body);
+            req.body.interviewers = req.body.interviewers.trim().replace(/\s*,\s*/g, ',').split(',');
+            console.log("LOG ENTRY SPLIT:", req.body);
             req.body.contactInfo.trim();
             req.body.notes.trim();
             job.interviewLog.push(req.body);
