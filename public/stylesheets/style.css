@@ -305,6 +305,10 @@ hr {
   font-size: 16px;
 }
 
+#log-submit {
+  margin-left: 100px;
+}
+
 .confetti {
   position: fixed;
   display: block;
@@ -360,6 +364,8 @@ hr {
   color: rgb(255,205,5);
   font-weight: 800;
   background-color: black;
+  height: 12px;
+  line-height: 15px;
 }
 
 .tooltip .tooltiptext {
@@ -374,7 +380,7 @@ hr {
   z-index: 1;
   bottom: 125%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -75px;
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 12px;
