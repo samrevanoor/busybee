@@ -4,9 +4,7 @@ function create(req, res) {
     User.findById(req.user.id)
         .then(function (user) {
             const job = user.jobs.id(req.params.id);
-            console.log("LOG ENTRY:", req.body);
             req.body.interviewers = req.body.interviewers.trim().replace(/\s*,\s*/g, ',').split(',');
-            console.log("LOG ENTRY SPLIT:", req.body);
             req.body.contactInfo.trim();
             req.body.notes.trim();
             job.interviewLog.push(req.body);
@@ -17,11 +15,9 @@ function create(req, res) {
             return job;
         })
         .then(function (job) {
-            console.log(job);
             res.redirect(`/jobs/${req.params.id}`)
         })
         .catch(function (err) {
-            console.log("OH NO", err);
             res.redirect('/jobs')
         })
 }

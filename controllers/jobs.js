@@ -4,7 +4,7 @@ const User = require('../models/user');
 function index(req, res, next) {
     User.findById(req.user.id)
         .then(function (user) {
-            return user.jobs.sort((a, b) => {
+            return user.jobs.sort(function (a, b) {
                 const aDate = new Date(a.updatedAt);
                 const bDate = new Date(b.updatedAt);
 
@@ -36,21 +36,18 @@ function newJob(req, res) {
 function create(req, res) {
     User.findById(req.user.id)
         .then(function (user) {
-            console.log(user.jobs);
-            req.body.role.trim();
-            req.body.company.trim();
-            req.body.link.trim();
-            req.body.roleNormalized = req.body.role.toLowerCase().trim();
-            req.body.companyNormalized = req.body.company.toLowerCase().trim();
+            req.body.role = req.body.role.trim();
+            req.body.company = req.body.company.trim();
+            req.body.link = req.body.link.trim();
+            req.body.roleNormalized = req.body.role.toLowerCase();
+            req.body.companyNormalized = req.body.company.toLowerCase();
             user.jobs.push(req.body);
-            console.log(user.jobs)
             return user.save()
         })
         .then(function () {
             res.redirect(`/jobs`);
         })
         .catch(function (err) {
-            console.log("OH NO: ", err);
             res.redirect('/jobs');
         })
 };
@@ -61,7 +58,6 @@ function show(req, res) {
             return user.jobs.id(req.params.id)
         })
         .then(function (job) {
-            console.log(job);
             res.render('jobs/show', { title: 'job details', job });
         })
         .catch(function (err) {
@@ -79,7 +75,6 @@ function deleteJob(req, res) {
             res.redirect('/jobs')
         })
         .catch(function (err) {
-            console.log("OH NO");
             res.redirect('/jobs')
         })
 }
@@ -93,7 +88,6 @@ function editJob(req, res) {
             res.render('jobs/edit', { title: 'edit job', job })
         })
         .catch(function (err) {
-            console.log("OH NO");
             res.redirect(`/jobs/${req.params.id}`)
         })
 }
@@ -116,7 +110,6 @@ function updateJob(req, res) {
             res.redirect(`/jobs/${req.params.id}`)
         })
         .catch(function (err) {
-            console.log("OH NO", err);
             res.redirect('/jobs')
         })
 }
@@ -126,7 +119,7 @@ function sort(req, res, next) {
         .then(function (user) {
             const sortKey = req.query.sortKey;
             if (sortKey === "role A-Z") {
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aRole = a.roleNormalized;
                     const bRole = b.roleNormalized;
 
@@ -136,7 +129,7 @@ function sort(req, res, next) {
                     return 0
                 });
             } else if (sortKey === "role Z-A") {
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aRole = a.roleNormalized;
                     const bRole = b.roleNormalized;
 
@@ -146,7 +139,7 @@ function sort(req, res, next) {
                     return 0
                 });
             } else if (sortKey === "company A-Z") {
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aCompany = a.companyNormalized;
                     const bCompany = b.companyNormalized;
 
@@ -156,7 +149,7 @@ function sort(req, res, next) {
                     return 0
                 });
             } else if (sortKey === "company Z-A") {
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aCompany = a.companyNormalized;
                     const bCompany = b.companyNormalized;
 
@@ -166,7 +159,7 @@ function sort(req, res, next) {
                     return 0
                 });
             } else if (sortKey === "latest stage") {
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aStage = a.currentStage;
                     const bStage = b.currentStage;
 
@@ -176,7 +169,7 @@ function sort(req, res, next) {
                     return 0
                 });
             } else if (sortKey === "earliest stage") {
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aStage = a.currentStage;
                     const bStage = b.currentStage;
 
@@ -187,7 +180,7 @@ function sort(req, res, next) {
                 });
             } else {
                 sortKey === "last updated";
-                return user.jobs.sort((a, b) => {
+                return user.jobs.sort(function (a, b) {
                     const aUpdatedAt = a.updatedAt;
                     const bUpdatedAt = b.updatedAt;
 
@@ -207,7 +200,6 @@ function sort(req, res, next) {
             })
         })
         .catch(function (err) {
-            console.log("OH NO", err);
             res.redirect('/jobs')
         });
 };
@@ -218,12 +210,11 @@ function hired(req, res) {
             res.render('jobs/hired')
         })
         .catch(function (err) {
-            console.log(err);
             res.redirect('/jobs')
         })
 }
 
-function resources(req, res){
+function resources(req, res) {
     res.render('resources')
 }
 
