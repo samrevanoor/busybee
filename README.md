@@ -50,7 +50,7 @@ I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board)
 
 You can view my wireframes here (link/collapse md).
 
-Here is my ERD: <img src="public/images/ERD">
+Here is my ERD: <img src="public/images/ERD.png">
 
 <br>
 
