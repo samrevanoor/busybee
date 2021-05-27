@@ -49,7 +49,7 @@ If you are looking to clone my repo to use my app on your device, make sure to d
 
 I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board) for my project planning. 
 
-You can view my wireframes here (link).
+You can view my wireframes here (link/collapse md).
 
 Here is my ERD: (screenshot)
 
