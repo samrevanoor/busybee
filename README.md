@@ -1,7 +1,7 @@
 # The Busy Bee Job Tracker App
 ## by Sam Revanoor
 
-- The Busy Bee [web-app](https://thebusybee.herokuapp.com/)
+The Busy Bee [web-app](https://thebusybee.herokuapp.com/)
 
 ### **Background**
 
@@ -33,37 +33,37 @@ For Project 2, I decided to create a job tracker app with a fun playful twist. J
 <img src="public/images/ss1.png">
 Log In page
 
-<br><br>
+<br>
 
 <img src="public/images/ss2.png">
 Home page (with no jobs)
 
-<br><br>
+<br>
 
 <img src="public/images/ss4.png">
 Home page (with jobs)
 
-<br><br>
+<br>
 
 <img src="public/images/ss3.png">
 Add a job
 
-<br><br>
+<br>
 
 <img src="public/images/ss5.png">
 Job details page 
 
-<br><br>
+<br>
 
 <img src="public/images/ss6.png">
 Job details page (with interview log entry)
 
-<br><br>
+<br>
 
 <img src="public/images/ss8.png">
 Hired page
 
-<br><br>
+<br>
 
 ------
 
@@ -80,7 +80,11 @@ If you are looking to clone my repo to use my app on your device, make sure to d
 
 I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board) for my project planning. 
 
-You can view my wireframes here (link/collapse md).
+<details>
+    <summary>Click to expand to view my wireframes.</summary>
+    Test!
+
+</details>
 
 Here is my ERD: <img src="public/images/ERD.png">
 
