@@ -78,7 +78,7 @@ If you are looking to clone my repo to use my app on your device, make sure to d
 - Passport
 - Dotenv
 
-I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board) for my project planning. 
+I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board) for my project planning and user stories.
 
 <details>
     <summary>Click to expand to view my wireframes.</summary>
