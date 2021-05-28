@@ -82,8 +82,10 @@ I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board)
 
 <details>
     <summary>Click to expand to view my wireframes.</summary>
-    Test!
-
+    <img src="public/images/wf1.jpg"><br>
+    <img src="public/images/wf2.jpg"><br>
+    <img src="public/images/wf3.jpg"><br>
+    <img src="public/images/wf4.jpg"><br>
 </details>
 
 Here is my ERD: <br>
