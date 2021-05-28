@@ -1,7 +1,7 @@
 # The Busy Bee Job Tracker App
 ## by Sam Revanoor
 
-- [The Busy Bee app]((https://thebusybee.herokuapp.com/))
+- The Busy Bee [web-app](https://thebusybee.herokuapp.com/)
 
 ### **Background**
 
@@ -17,6 +17,7 @@ For Project 2, I decided to create a job tracker app with a fun playful twist. J
 - JavaScript
 - Node.js
 - Express.js
+- EJS templates
 - MongoDB
 - Mongoose
 - oAuth
@@ -62,8 +63,7 @@ Job details page (with interview log entry)
 <img src="public/images/ss8.png">
 Hired page
 
-<br><br>
-
+<br>
 ------
 
 ### **Getting Started**
@@ -84,7 +84,6 @@ You can view my wireframes here (link/collapse md).
 Here is my ERD: <img src="public/images/ERD.png">
 
 <br>
-
 ------
 
 ### **Next Steps**
@@ -94,7 +93,6 @@ Here is my ERD: <img src="public/images/ERD.png">
 - Sending text messages/email reminders a couple hours before interviews
 - Using the Google Maps API to help locate where the interview will be taking place
 <br>
-
 ------
 
 Thank you for reading! Enjoy using the app and please share feedback 😊
