@@ -1,10 +1,11 @@
 # The Busy Bee Job Tracker App
 ## by Sam Revanoor
 
+- [The Busy Bee app]((https://thebusybee.herokuapp.com/))
+
 ### **Background**
 
 For Project 2, I decided to create a job tracker app with a fun playful twist. Job hunting can be stressful and mentally exhausting but hopefully, with the help of my app, it might add a bit of fun and cheeriness.
-
 <br>
 
 ------
@@ -22,16 +23,46 @@ For Project 2, I decided to create a job tracker app with a fun playful twist. J
 - RESTful routing
 - Passport
 - Dotenv
-
 <br>
 
 ------
 
 ### **Screenshots**
 
-(insert here)
+<img src="public/images/ss1.png">
+Log In page
 
-<br>
+<br><br>
+
+<img src="public/images/ss2.png">
+Home page (with no jobs)
+
+<br><br>
+
+<img src="public/images/ss4.png">
+Home page (with jobs)
+
+<br><br>
+
+<img src="public/images/ss3.png">
+Add a job
+
+<br><br>
+
+<img src="public/images/ss5.png">
+Job details page 
+
+<br><br>
+
+<img src="public/images/ss6.png">
+Job details page (with interview log entry)
+
+<br><br>
+
+<img src="public/images/ss8.png">
+Hired page
+
+<br><br>
 
 ------
 
@@ -62,7 +93,6 @@ Here is my ERD: <img src="public/images/ERD.png">
 - Adding a field to enter future interview dates/times for roles
 - Sending text messages/email reminders a couple hours before interviews
 - Using the Google Maps API to help locate where the interview will be taking place
-
 <br>
 
 ------
