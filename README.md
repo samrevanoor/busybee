@@ -86,7 +86,8 @@ I used [this Trello board](https://trello.com/b/AglLSD6S/busy-bee-project-board)
 
 </details>
 
-Here is my ERD: <img src="public/images/ERD2.png">
+Here is my ERD: <br>
+<img src="public/images/ERD2.png">
 
 <br>
 
