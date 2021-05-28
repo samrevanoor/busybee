@@ -8,7 +8,8 @@ const logSchema = new Schema({
     notes: {
         type: String,
         trim: true
-    }
+    },
+    emojiRating: String
 }, {
     timestamps: true
 });
