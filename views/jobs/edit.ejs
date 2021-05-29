@@ -13,14 +13,15 @@
                 <br>
                 <label><strong>* current stage: </strong></label>
                     <select name="currentStage" class="stage-selector">
-                        <option value="3. applied 🍯 ○○○○" <%= job.currentStage==="3. applied 🍯 ○○○○" ? "selected"
+                        <option value="4. applied 🍯 ○○○○" <%= job.currentStage==="4. applied 🍯 ○○○○" ? "selected"
                         : "" %>>applied</option>
-                        <option value="4. just getting started 🍯 🍯 ○○○" <%= job.currentStage==="4. just getting started 🍯 🍯 ○○○" ? "selected"
+                        <option value="5. just getting started 🍯 🍯 ○○○" <%= job.currentStage==="5. just getting started 🍯 🍯 ○○○" ? "selected"
                         : "" %>>just getting started</option>
-                        <option value="5. midway 🍯 🍯 🍯 ○○" <%= job.currentStage==="5. midway 🍯 🍯 🍯 ○○" ? "selected" : "" %>>midway</option>
-                        <option value="6. almost there 🍯 🍯 🍯 🍯 ○" <%= job.currentStage==="6. almost there 🍯 🍯 🍯 🍯 ○" ? "selected" : "" %>>almost
+                        <option value="6. midway 🍯 🍯 🍯 ○○" <%= job.currentStage==="6. midway 🍯 🍯 🍯 ○○" ? "selected" : "" %>>midway</option>
+                        <option value="7. almost there 🍯 🍯 🍯 🍯 ○" <%= job.currentStage==="7. almost there 🍯 🍯 🍯 🍯 ○" ? "selected" : "" %>>almost
                             there</option>
-                            <option value="7. done! 🍯 🍯 🍯 🍯 🍯" <%= job.currentStage==="7. done! 🍯 🍯 🍯 🍯 🍯" ? "selected" : "" %>>done!</option>
+                            <option value="8. done! 🍯 🍯 🍯 🍯 🍯" <%= job.currentStage==="8. done! 🍯 🍯 🍯 🍯 🍯" ? "selected" : "" %>>done!</option>
+                            <option value="3. to apply" <%= job.currentStage==="3. to apply" ? "selected" : "" %>>to apply</option>
                             <option value="2. on hold" <%= job.currentStage==="2. on hold" ? "selected" : "" %>>on hold</option>
                             <option value="1. rejected" <%= job.currentStage==="1. rejected" ? "selected" : "" %>>rejected</option>
                     </select>

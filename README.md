@@ -24,6 +24,7 @@ For Project 2, I decided to create a job tracker app with a fun playful twist. J
 - RESTful routing
 - Passport
 - Dotenv
+- Deployed on Heroku
 <br>
 
 ------
