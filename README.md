@@ -6,7 +6,7 @@ The Busy Bee [web-app](https://thebusybee.herokuapp.com/)
 
 ### **Objective**
 
-To create a functioning back-end application using full-CRUD operations and RESTful routing, using Node.js, Express.js, Mongo and Mongoose.
+To create a functioning back-end application with full-CRUD operations and RESTful routing, using Node.js, Express.js, Mongo and Mongoose.
 <br>
 
 -------
