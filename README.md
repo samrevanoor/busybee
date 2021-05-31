@@ -3,6 +3,14 @@
 
 The Busy Bee [web-app](https://thebusybee.herokuapp.com/)
 
+
+### **Objective**
+
+To create a functioning backend application using full-CRUD operations and RESTful routing, using Node.js, Express.js, Mongo and Mongoose.
+<br>
+
+-------
+
 ### **Background**
 
 For Project 2, I decided to create a job tracker app with a fun playful twist. Job hunting can be stressful and mentally exhausting but hopefully, with the help of my app, it might add a bit of fun and cheeriness.
